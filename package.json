@@ -2,6 +2,7 @@
   "name": "nexp-docs",
   "version": "2.0.0",
   "private": false,
+  "homepage": "",
   "scripts": {
     "docusaurus": "./node_modules/.bin/docusaurus",
     "start": "./node_modules/.bin/docusaurus start",

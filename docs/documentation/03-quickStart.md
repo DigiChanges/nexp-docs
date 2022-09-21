@@ -1,10 +1,62 @@
 # Quick Start
 
-## Postman Documentation
+## NEXP CLI
 
-[API Documentation](https://documenter.getpostman.com/view/10426172/Tz5je15Z)
+[Nexp CLI](https://github.com/DigiChanges/nexp-cli)
 
-## Execute DEV Environment
+> This CLI is made to be able to quickly create the NExp(https://github.com/DigiChanges/node-experience) boilerplate with all the content you want it to have.
+> 
+> It allows you to choose between Mongoose, TypeORM and MikroORM when it comes to database persistence. In addition, you can also choose between Koa and Express for the HTTP library.
+> 
+> This tool allows you to use NExp without the need to modify the code.
+
+## Installation
+
+First, install nexp-cli using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
+
+## Step by Step
+#### First of all install nexp cli package globally.
+
+![1.png](images/1.png) 
+
+#### Currently, there is a `create` command call, in the future more commands will be added.
+
+![2.png](images/2.png)
+
+#### Write the name of the project.
+
+![3.png](images/3.png)
+
+#### Choose the ORM.
+
+![4.png](images/4.png)
+
+#### Choose the HTTP library.
+
+![5.png](images/5.png)
+
+#### And wait for each action to complete.
+
+![6.png](images/6.png)
+
+#### Copy .env.dev to .env and install dependencies with yarn or npm.
+
+![7.png](images/7.png)
+
+#### Execute `make dev` command or `STAGE=dev docker-compose up --build -d` to create docker containers.
+
+* Node
+* DB
+* Redis
+* Mail
+* Minio
+
+![8.png](images/8.png)
+
+#### And it's ready to code.
+
+![9.png](images/9.png)
+## Local Environment
 
 We can run the project directly with docker compose and then bash where the basic commands to feed the database are located.
 
@@ -13,18 +65,6 @@ We can run the project directly with docker compose and then bash where the basi
 3. Then execute `STAGE=dev docker-compose up --build` to up all containers.
 4. Basically generates an admin user, add roles with permission and get a bucket for minIO. `docker-compose exec node bash dev.init.sh`
 
-## Execute NEXP CLI
-
-[Nexp CLI](https://github.com/DigiChanges/nexp-cli)
-
-You can install NExp without using this repository. With the help of Yeoman you can have NExp installed and with only what you want to have.
-
-First, install [Yeoman](http://yeoman.io) and nexp-cli using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
-
-```bash
-npm install -g yo
-npm install -g generator-nexp-cli
-```
 
 Then generate your new project:
 

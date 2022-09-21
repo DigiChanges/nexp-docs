@@ -73,10 +73,6 @@ Common structures found within this project are:
 
 [API Documentation](https://documenter.getpostman.com/view/10426172/Tz5je15Z)
 
-### Boilerplate Documentation
-
-[Boilerplate Documentation](https://digichanges.github.io/nexp-docs)
-
 ## License
 
 **NExp** is [MIT licensed](LICENSE).

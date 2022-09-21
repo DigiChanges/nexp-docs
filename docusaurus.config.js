@@ -65,21 +65,21 @@ const config = {
           },
           {
             type: 'doc',
-            docId: 'tutorials/building',
-            position: 'left',
-            label: 'Tutorials',
-          },
-          {
-            type: 'doc',
             docId: 'api/node-experience',
             position: 'left',
             label: 'API',
           },
           {
-            to: '/blog',
-            label: 'Blog',
-            position: 'left'
+            type: 'doc',
+            docId: 'tutorials/building',
+            position: 'left',
+            label: 'Tutorials',
           },
+          // {
+          //   to: '/blog',
+          //   label: 'Blog',
+          //   position: 'left'
+          // },
           {
             href: 'https://github.com/DigiChanges/node-experience',
             label: 'GitHub',
