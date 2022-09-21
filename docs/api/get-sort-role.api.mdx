@@ -1,0 +1,31 @@
+---
+id: get-sort-role
+sidebar_label: Get Sort Role
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["Role"],"security":[{"bearerAuth":[]}],"parameters":[{"name":"Content-Type","in":"header","schema":{"type":"string"},"example":"application/json"},{"name":"pagination[limit]","in":"query","schema":{"type":"integer"},"example":"2"},{"name":"pagination[offset]","in":"query","schema":{"type":"integer"},"example":"0"},{"name":"sort[slug]","in":"query","schema":{"type":"string"},"example":"desc"}],"responses":{"200":{"description":"Successful response"}},"description":"Get Sort Role","method":"get","path":"/api/roles","servers":[{"url":"http://{{url}}"}],"securitySchemes":{"BearerAuth":{"type":"http","scheme":"bearer"}},"info":{"title":"Node Experience","description":"Open API Specification","version":"0.0.1","x-logo":{"url":"https://raw.githubusercontent.com/DigiChanges/node-experience/docs/RABC/readme/NExp.svg","backgroundColor":"#FFFFFF","altText":"NExp"},"contact":{"name":"Nathan M. Russo","url":"https://www.linkedin.com/in/nathan-m-russo","email":"nathan@digichanges.com"},"license":{"name":"MIT","url":"https://es.wikipedia.org/wiki/Licencia_MIT"}},"postman":{"name":"Get Sort Role","description":{"type":"text/plain"},"url":{"path":["api","roles"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"key":"pagination[limit]","value":""},{"disabled":false,"key":"pagination[offset]","value":""},{"disabled":false,"key":"sort[slug]","value":""}],"variable":[]},"method":"GET"}}
+sidebar_class_name: "get api-method"
+info_path: docs/api/node-experience
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem"
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Get Sort Role
+
+
+
+Get Sort Role
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"pagination[limit]","in":"query","schema":{"type":"integer"},"example":"2"}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"pagination[offset]","in":"query","schema":{"type":"integer"},"example":"0"}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"sort[slug]","in":"query","schema":{"type":"string"},"example":"desc"}}></ParamsItem></ul></div></details><details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Header Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"Content-Type","in":"header","schema":{"type":"string"},"example":"application/json"}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Successful response
+
+</div><div></div></TabItem></ApiTabs></div>
+      

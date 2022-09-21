@@ -1,0 +1,2029 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Node Experience",
+    "description": "Open API Specification",
+    "version": "0.0.1",
+    "x-logo": {
+      "url": "https://raw.githubusercontent.com/DigiChanges/node-experience/docs/RABC/readme/NExp.svg",
+      "backgroundColor": "#FFFFFF",
+      "altText": "NExp"
+    },
+    "contact": {
+      "name": "Nathan M. Russo",
+      "url": "https://www.linkedin.com/in/nathan-m-russo",
+      "email": "nathan@digichanges.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://es.wikipedia.org/wiki/Licencia_MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://{{url}}"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Auth"
+    },
+    {
+      "name": "File"
+    },
+    {
+      "name": "Item"
+    },
+    {
+      "name": "Notifications"
+    },
+    {
+      "name": "Role"
+    },
+    {
+      "name": "User"
+    }
+  ],
+  "paths": {
+    "/api/auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Login User",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "email": "user@node.com",
+                  "password": "12345678"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "provider",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "local"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "OK",
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "Access-Control-Allow-Methods": {
+                "schema": {
+                  "type": "string",
+                  "example": "GET,HEAD,PUT,POST,DELETE"
+                }
+              },
+              "Content-Security-Policy": {
+                "schema": {
+                  "type": "string",
+                  "example": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                }
+              },
+              "X-DNS-Prefetch-Control": {
+                "schema": {
+                  "type": "string",
+                  "example": "off"
+                }
+              },
+              "Expect-CT": {
+                "schema": {
+                  "type": "string",
+                  "example": "max-age=0"
+                }
+              },
+              "X-Frame-Options": {
+                "schema": {
+                  "type": "string",
+                  "example": "SAMEORIGIN"
+                }
+              },
+              "Strict-Transport-Security": {
+                "schema": {
+                  "type": "string",
+                  "example": "max-age=15552000; includeSubDomains"
+                }
+              },
+              "X-Download-Options": {
+                "schema": {
+                  "type": "string",
+                  "example": "noopen"
+                }
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "example": "nosniff"
+                }
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "schema": {
+                  "type": "string",
+                  "example": "none"
+                }
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "type": "string",
+                  "example": "no-referrer"
+                }
+              },
+              "X-XSS-Protection": {
+                "schema": {
+                  "type": "integer",
+                  "example": "0"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "664"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Mon, 25 Oct 2021 18:51:16 GMT"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                    "data": {
+                        "user": {
+                            "id": "03a1489e-ff81-429f-80d2-30e5cfa14544",
+                            "firstName": "node",
+                            "lastName": "node",
+                            "email": "user@node.com",
+                            "enable": true,
+                            "permissions": [
+                                "all"
+                            ],
+                            "isSuperAdmin": false,
+                            "roles": [
+                                {
+                                    "id": "dea00434-9693-4eee-91c0-7f3db2e25707",
+                                    "name": "Admin",
+                                    "slug": "admin",
+                                    "enable": true,
+                                    "createdAt": 1663713456,
+                                    "updatedAt": 1663713474
+                                }
+                            ],
+                            "createdAt": 1663713456,
+                            "updatedAt": 1663713468
+                        },
+                        "expires": 1663805074,
+                        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpZCI6ImNhYjk0MWM2LWM3YzktNDZmMy04NzY5LWE2NGUzODFjMWU5NSIsImlzcyI6ImRpZ2ljaGFuZ2VzIiwiYXVkIjoiZGlnaWNoYW5nZXMuY29tIiwic3ViIjoidXNlckBub2RlLmNvbSIsImlhdCI6MTY2MzgwNTA3NCwiZXhwIjoxNjYzODA1MDc0LCJ1c2VySWQiOiIwM2ExNDg5ZS1mZjgxLTQyOWYtODBkMi0zMGU1Y2ZhMTQ1NDQiLCJlbWFpbCI6InVzZXJAbm9kZS5jb20ifQ.ezxDM2_7W4fB4N-8urWLmCW8mycSR7ehK9ykkt4JpcZfIrXql2js29gLLGAD5Hm_Yb6YEuOCBNcLGcK-NeMzug"
+                    }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+    "message": "Error credentials.",
+    "errorCode": "auth.domain.exceptions.badCredentials",
+    "errors": null,
+    "metadata": {}
+}
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+                        "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+    "message": "Failed Request.",
+    "errorCode": null,
+    "errors": [
+        {
+            "property": "email",
+            "constraints": {
+                "isEmail": "email must be an email"
+            }
+        },
+        {
+            "property": "password",
+            "constraints": {
+                "isLength": "password must be longer than or equal to undefined and shorter than or equal to undefined characters",
+                "isString": "password must be a string"
+            }
+        }
+    ],
+    "metadata": {}
+}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/signup": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "SignUp",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "firstName": "Jhon",
+                  "lastName": "Doe",
+                  "email": "john-doe@mail.com",
+                  "password": "12345678",
+                  "passwordConfirmation": "12345678",
+                  "birthday": "04/07/1990",
+                  "documentType": "dni",
+                  "documentNumber": "2610907",
+                  "gender": "male",
+                  "phone": "2234456998",
+                  "country": "AR",
+                  "address": "Don Trusted 123"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "noauthAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/auth/refresh-token": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Refresh Token",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/auth/forgot-password": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Forgot Password",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "email": "superadmin@node.com"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/auth/change-forgot-password": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Change Forgot Password",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "confirmationToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJkaWdpY2hhbmdlcyIsImF1ZCI6ImRpZ2ljaGFuZ2VzLmNvbSIsInN1YiI6InN1cGVyYWRtaW5Abm9kZS5jb20iLCJpYXQiOjE2NTg4NjgyODQsImV4cCI6MTY1ODg2ODI4NCwiZW1haWwiOiJzdXBlcmFkbWluQG5vZGUuY29tIn0.or6UquBAOuGC4Q6wKtHiQGNDGTk5ZKMmoj4K50Pg5m0fqnnQ3tlLaBV66B6shcGpo25LTBtKurXx8TbQxB-Zhw",
+                  "password": "cucamonga",
+                  "passwordConfirmation": "cucamonga"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/auth/verify-your-account/{confirmationToken}": {
+      "put": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Verify your account",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": ""
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "noauthAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "confirmationToken",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJkaWdpY2hhbmdlcyIsImF1ZCI6ImRpZ2ljaGFuZ2VzLmNvbSIsInN1YiI6ImpvaG4tZG9lM0BtYWlsLmNvbSIsImlhdCI6MTY1MTAxMzczMSwiZXhwIjoxNjUxMDEzNzMxLCJlbWFpbCI6ImpvaG4tZG9lM0BtYWlsLmNvbSJ9.Jg8mm7J4KtvPBXnpKoGxslqsJE-6owuVx3ZRrRpmcB61pxPrxuY4JLWEil41hyORD4Vbvd9h-mA-Giy5Sz4QJA"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/auth/me": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Me",
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Me",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "firstName": "Roxnny A",
+                  "lastName": "Barrios C",
+                  "email": "roxnny.barrios@gmail.com",
+                  "birthday": "04/07/1991",
+                  "documentType": "dni",
+                  "documentNumber": "26109099",
+                  "gender": "female",
+                  "phone": "2234456997",
+                  "country": "AF",
+                  "address": "Don Trusted 124"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/auth/logout": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Logout",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": ""
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/auth/permissions": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Get Permissions",
+        "security": [
+          {
+            "bearerAuth": ["Bearer {JWT}"]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "Access-Control-Allow-Methods": {
+                "schema": {
+                  "type": "string",
+                  "example": "GET,HEAD,PUT,POST,DELETE"
+                }
+              },
+              "Content-Security-Policy": {
+                "schema": {
+                  "type": "string",
+                  "example": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                }
+              },
+              "X-DNS-Prefetch-Control": {
+                "schema": {
+                  "type": "string",
+                  "example": "off"
+                }
+              },
+              "Expect-CT": {
+                "schema": {
+                  "type": "string",
+                  "example": "max-age=0"
+                }
+              },
+              "X-Frame-Options": {
+                "schema": {
+                  "type": "string",
+                  "example": "SAMEORIGIN"
+                }
+              },
+              "Strict-Transport-Security": {
+                "schema": {
+                  "type": "string",
+                  "example": "max-age=15552000; includeSubDomains"
+                }
+              },
+              "X-Download-Options": {
+                "schema": {
+                  "type": "string",
+                  "example": "noopen"
+                }
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "example": "nosniff"
+                }
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "schema": {
+                  "type": "string",
+                  "example": "none"
+                }
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "type": "string",
+                  "example": "no-referrer"
+                }
+              },
+              "X-XSS-Protection": {
+                "schema": {
+                  "type": "integer",
+                  "example": "0"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "664"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Mon, 25 Oct 2021 18:51:16 GMT"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "status": "success",
+                  "code": 200,
+                  "statusCode": "HTTP_OK",
+                  "data": [
+                    {
+                      "group": "AUTH",
+                      "permissions": [
+                        "authKeepAlive",
+                        "authSyncPermissions",
+                        "getPermissions"
+                      ]
+                    },
+                    {
+                      "group": "ITEMS",
+                      "permissions": [
+                        "itemsSave",
+                        "itemsUpdate",
+                        "itemsShow",
+                        "itemsList",
+                        "itemsDelete"
+                      ]
+                    },
+                    {
+                      "group": "USERS",
+                      "permissions": [
+                        "usersSave",
+                        "usersUpdate",
+                        "usersShow",
+                        "usersList",
+                        "usersDelete",
+                        "usersAssignRole",
+                        "usersChangeMyPassword",
+                        "usersChangeUserPassword"
+                      ]
+                    },
+                    {
+                      "group": "FILES",
+                      "permissions": [
+                        "filesUpload",
+                        "filesUpdate",
+                        "filesDownload",
+                        "filesList",
+                        "filesShowMetadata"
+                      ]
+                    },
+                    {
+                      "group": "ROLES",
+                      "permissions": [
+                        "rolesSave",
+                        "rolesUpdate",
+                        "rolesShow",
+                        "rolesList",
+                        "rolesDelete"
+                      ]
+                    },
+                    {
+                      "group": "OTHERS",
+                      "permissions": [
+                        "all"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/files/base64": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Upload file by Base64",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "filename": "photo.png",
+                  "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII="
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "hasOriginalName",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": "false"
+          },
+          {
+            "name": "isPublic",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": "true"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/files/presigned-get-object": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Get Presigned Get Object",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "filename": "01.-_dar-kunor.mp3",
+                  "expiry": 3000
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "isPublic",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": "false"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/files": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Upload file by Multipart",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "hasOriginalName",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": "true"
+          },
+          {
+            "name": "isPublic",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": "false"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Get Files Filter",
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "pagination[limit]",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "30"
+          },
+          {
+            "name": "pagination[offset]",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "0"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/files/{FILE_ID}": {
+      "get": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Get File",
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "FILE_ID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Update file by Multipart",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "FILE_ID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Delete File",
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "FILE_ID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/files/metadata/{FILE_ID}": {
+      "get": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Get File Metadata",
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "FILE_ID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/files/base64/{FILE_ID}": {
+      "put": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Update file by Base64",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "filename": "photo.png",
+                  "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII="
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "FILE_ID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/files/objects": {
+      "get": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Get S3 Objects",
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/items": {
+      "post": {
+        "tags": [
+          "Item"
+        ],
+        "summary": "Add Item",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "name": "Item 1",
+                  "type": 10
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Item"
+        ],
+        "summary": "Get Filter Item",
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "pagination[limit]",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "2"
+          },
+          {
+            "name": "pagination[offset]",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "0"
+          },
+          {
+            "name": "filter[type]",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "11"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/items/{ITEM_ID}": {
+      "get": {
+        "tags": [
+          "Item"
+        ],
+        "summary": "Get One Item",
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "ITEM_ID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Item"
+        ],
+        "summary": "Update Item",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "name": "Item 1 update",
+                  "type": 11
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "ITEM_ID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Item"
+        ],
+        "summary": "Delete Item",
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "ITEM_ID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/notifications/message": {
+      "post": {
+        "tags": [
+          "Notifications"
+        ],
+        "summary": "Send Push Notification",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "title": "POSTMAN !!!",
+                  "message": "Test message from postman!!",
+                  "subscription": {
+                    "endpoint": "https://fcm.googleapis.com/fcm/send/eg0gc8NA4jA:APA91bHYA86Rx0Hrsfnb-xDrfweiSrDL5J5ynFL6xrqKV3NoNzRUoYw8z0Z24KoBcZyDpAeQDjk4JTDhaD7YAB8VA7oMrz1hWFjDnYfa_flHjSmVG_JHTcAVDtkP2j10gfg7V7vCkqkB",
+                    "keys": {
+                      "p256dh": "BEqytDuJhvCeKOlQYLZKlbZnu_1twWwkObnAkud4PVjazgEbbXN2y0qc3TRJizapb57Tbl60xBa-P9ZKgSTEXvk",
+                      "auth": "mPe_jJftQbnWCKUb09JDlw"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/roles": {
+      "post": {
+        "tags": [
+          "Role"
+        ],
+        "summary": "Add Roles with Permissions",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "name": "Role2",
+                  "slug": "role2",
+                  "permissions": [
+                    "itemsCreate",
+                    "itemsUpdate",
+                    "itemsList",
+                    "itemsShow"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Role"
+        ],
+        "summary": "Get Sort Role",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "pagination[limit]",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "2"
+          },
+          {
+            "name": "pagination[offset]",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "0"
+          },
+          {
+            "name": "sort[slug]",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "desc"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/roles/{ROLE_ID}": {
+      "get": {
+        "tags": [
+          "Role"
+        ],
+        "summary": "Get One Role",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "ROLE_ID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Role"
+        ],
+        "summary": "Update Role",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "name": "Role_1",
+                  "slug": "role_1",
+                  "permissions": [
+                    "itemsSave"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "ROLE_ID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Role"
+        ],
+        "summary": "Delete Role",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "ROLE_ID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/auth/sync-roles-permissions": {
+      "post": {
+        "tags": [
+          "Role"
+        ],
+        "summary": "Sync Permissions By Role",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/users/{USER_ID}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get One User",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "USER_ID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Update User",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "firstName": "Jhon 1",
+                  "lastName": "Doe 1",
+                  "email": "{{EMAIL}}.ar",
+                  "birthday": "04/07/1991",
+                  "documentType": "dni",
+                  "documentNumber": "355134357",
+                  "gender": "female",
+                  "phone": "2234456997",
+                  "country": "AF",
+                  "address": "Don Trusted 124",
+                  "enable": true,
+                  "permissions": []
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "USER_ID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Delete User",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "USER_ID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/users/change-my-password": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Change My Password",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "currentPassword": "1234567891",
+                  "password": "1234567897",
+                  "passwordConfirmation": "1234567897"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/users/change-user-password/{USER_ID}": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Change User Password",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "password": "1234567811",
+                  "passwordConfirmation": "1234567811"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "USER_ID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/users/assign-role/{USER_ID}": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Assign Roles To User",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "rolesId": [
+                    "{{ROLE_ID}}"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "USER_ID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/users": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Add One User",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "firstName": "Jhon",
+                  "lastName": "Doe",
+                  "email": "{{EMAIL}}",
+                  "password": "12345678",
+                  "passwordConfirmation": "12345678",
+                  "birthday": "04/07/1990",
+                  "documentType": "dni",
+                  "documentNumber": "{{DNI}}",
+                  "gender": "male",
+                  "phone": "2234456998",
+                  "country": "AR",
+                  "address": "Don Trusted 123",
+                  "permissions": [
+                    "rolesSave"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get Users Filter",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "pagination[limit]",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "4"
+          },
+          {
+            "name": "pagination[offset]",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "0"
+          },
+          {
+            "name": "filter[enable]",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": "true"
+          },
+          {
+            "name": "filter[email]",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "user"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    }
+  }
+}

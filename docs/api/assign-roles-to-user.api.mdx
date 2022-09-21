@@ -1,0 +1,31 @@
+---
+id: assign-roles-to-user
+sidebar_label: Assign Roles To User
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["User"],"requestBody":{"content":{"application/json":{"schema":{"type":"object","example":{"rolesId":["{{ROLE_ID}}"]}}}}},"security":[{"bearerAuth":[]}],"parameters":[{"name":"Content-Type","in":"header","schema":{"type":"string"},"example":"application/json"},{"name":"USER_ID","in":"path","schema":{"type":"string"},"required":true}],"responses":{"200":{"description":"Successful response"}},"description":"Assign Roles To User","method":"put","path":"/api/users/assign-role/{USER_ID}","servers":[{"url":"http://{{url}}"}],"securitySchemes":{"BearerAuth":{"type":"http","scheme":"bearer"}},"jsonRequestBodyExample":{"rolesId":["{{ROLE_ID}}"]},"info":{"title":"Node Experience","description":"Open API Specification","version":"0.0.1","x-logo":{"url":"https://raw.githubusercontent.com/DigiChanges/node-experience/docs/RABC/readme/NExp.svg","backgroundColor":"#FFFFFF","altText":"NExp"},"contact":{"name":"Nathan M. Russo","url":"https://www.linkedin.com/in/nathan-m-russo","email":"nathan@digichanges.com"},"license":{"name":"MIT","url":"https://es.wikipedia.org/wiki/Licencia_MIT"}},"postman":{"name":"Assign Roles To User","description":{"type":"text/plain"},"url":{"path":["api","users","assign-role",":USER_ID"],"host":["{{baseUrl}}"],"query":[],"variable":[{"disabled":false,"description":{"content":"(Required) ","type":"text/plain"},"type":"any","value":"","key":"USER_ID"}]},"header":[{"key":"Content-Type","value":"application/json"}],"method":"PUT","body":{"mode":"raw","raw":"\"\"","options":{"raw":{"language":"json"}}}}}
+sidebar_class_name: "put api-method"
+info_path: docs/api/node-experience
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem"
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Assign Roles To User
+
+
+
+Assign Roles To User
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Path Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"USER_ID","in":"path","schema":{"type":"string"},"required":true}}></ParamsItem></ul></div></details><details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Header Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"Content-Type","in":"header","schema":{"type":"string"},"example":"application/json"}}></ParamsItem></ul></div></details><MimeTabs><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>object</strong></div></li></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Successful response
+
+</div><div></div></TabItem></ApiTabs></div>
+      

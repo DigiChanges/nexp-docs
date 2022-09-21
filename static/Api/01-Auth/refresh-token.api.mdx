@@ -1,0 +1,31 @@
+---
+id: refresh-token
+sidebar_label: Refresh Token
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["Auth"],"requestBody":{"content":{"application/json":{"schema":{"type":"object","example":""}}}},"responses":{"200":{"description":"Successful response"}},"description":"Refresh Token","method":"post","path":"/api/auth/refresh-token","servers":[{"url":"http://{{url}}"}],"securitySchemes":{"BearerAuth":{"type":"http","scheme":"bearer"}},"jsonRequestBodyExample":"","info":{"title":"Options title","description":"Description from options","version":"0.0.1","x-logo":{"url":"https://raw.githubusercontent.com/DigiChanges/node-experience/docs/RABC/readme/NExp.svg","backgroundColor":"#FFFFFF","altText":"NExp"},"contact":{"name":"Nathan M. Russo","url":"https://www.linkedin.com/in/nathan-m-russo","email":"nathan@digichanges.com"},"license":{"name":"MIT","url":"https://es.wikipedia.org/wiki/Licencia_MIT"}},"postman":{"name":"Refresh Token","description":{"type":"text/plain"},"url":{"path":["api","auth","refresh-token"],"host":["{{baseUrl}}"],"query":[],"variable":[]},"header":[{"key":"Content-Type","value":"application/json"}],"method":"POST","body":{"mode":"raw","raw":"\"\"","options":{"raw":{"language":"json"}}}}}
+sidebar_class_name: "post api-method"
+info_path: docs/05-api/options-title
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem"
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Refresh Token
+
+
+
+Refresh Token
+
+<MimeTabs><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>object</strong></div></li></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Successful response
+
+</div><div></div></TabItem></ApiTabs></div>
+      

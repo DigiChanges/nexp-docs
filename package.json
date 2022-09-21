@@ -1,0 +1,47 @@
+{
+  "name": "nexp-docs",
+  "version": "2.0.0",
+  "private": false,
+  "scripts": {
+    "docusaurus": "./node_modules/.bin/docusaurus",
+    "start": "./node_modules/.bin/docusaurus start",
+    "build": "./node_modules/.bin/docusaurus build",
+    "swizzle": "./node_modules/.bin/docusaurus swizzle",
+    "deploy": "./node_modules/.bin/docusaurus deploy",
+    "clear": "./node_modules/.bin/docusaurus clear",
+    "serve": "./node_modules/.bin/docusaurus serve",
+    "write-translations": "./node_modules/.bin/docusaurus write-translations",
+    "write-heading-ids": "./node_modules/.bin/docusaurus write-heading-ids",
+    "convertpc": "p2o ./api/postman/Main.postman_collection.json -f ./api/nexp.json -o ./api/postman/options.json"
+  },
+  "dependencies": {
+    "@docusaurus/core": "2.1.0",
+    "@docusaurus/preset-classic": "2.1.0",
+    "@mdx-js/react": "^1.6.22",
+    "clsx": "^1.2.1",
+    "docusaurus-plugin-openapi-docs": "^1.1.12",
+    "docusaurus-theme-openapi-docs": "^1.1.12",
+    "postman-to-openapi": "^2.7.0",
+    "prism-react-renderer": "^1.3.5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@docusaurus/module-type-aliases": "2.1.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.5%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "engines": {
+    "node": ">=16.14"
+  }
+}
