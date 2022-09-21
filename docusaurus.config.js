@@ -95,7 +95,7 @@ const config = {
             items: [
               {
                 label: 'Knowledge Base',
-                to: '/docs/coverpage',
+                to: '/docs/documentation/coverpage',
               },
             ],
           },
