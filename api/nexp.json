@@ -2700,7 +2700,77 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful response"
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "id": "b38aa261-6c1d-4d14-85c9-61a743b61a10",
+                    "firstName": "Jhon",
+                    "lastName": "Doe",
+                    "email": "dgtest_1663781113508@node.com",
+                    "birthday": "04/07/1990",
+                    "documentType": "dni",
+                    "documentNumber": "37680858",
+                    "gender": "male",
+                    "phone": "2234456998",
+                    "country": "AR",
+                    "address": "Don Trusted 123",
+                    "enable": true,
+                    "roles": [],
+                    "permissions": [
+                      "rolesSave"
+                    ],
+                    "createdAt": 1663781113,
+                    "updatedAt": 1663781113
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "User not found.",
+                  "errorCode": "shared.exceptions.notFound",
+                  "errors": null,
+                  "metadata": {
+                    "entity": "User"
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Failed Request.",
+                  "errorCode": null,
+                  "errors": [
+                    {
+                      "property": "id",
+                      "constraints": {
+                        "isUuid": "id must be a UUID"
+                      }
+                    }
+                  ],
+                  "metadata": {}
+                }
+              }
+            }
           }
         }
       },
@@ -2756,8 +2826,63 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "Successful response"
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example":{
+                  "data": {
+                    "id": "b38aa261-6c1d-4d14-85c9-61a743b61a10",
+                    "message": "Updated successfully"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "User not found.",
+                  "errorCode": "shared.exceptions.notFound",
+                  "errors": null,
+                  "metadata": {
+                    "entity": "User"
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Failed Request.",
+                  "errorCode": null,
+                  "errors": [
+                    {
+                      "property": "documentNumber",
+                      "constraints": {
+                        "isString": "documentNumber must be a string",
+                        "isLength": "documentNumber must be longer than or equal to 3 and shorter than or equal to 16 characters"
+                      }
+                    }
+                  ],
+                  "metadata": {}
+                }
+              }
+            }
           }
         }
       },
@@ -2791,7 +2916,54 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful response"
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "id": "ac0e6642-5b63-4f91-a763-7dd92cf3ab43",
+                    "firstName": "Jhon",
+                    "lastName": "Doe",
+                    "email": "john@doe.com",
+                    "birthday": "04/07/1990",
+                    "documentType": "dni",
+                    "documentNumber": "667651468",
+                    "gender": "male",
+                    "phone": "2234456998",
+                    "country": "AR",
+                    "address": "Don Trusted 123",
+                    "enable": true,
+                    "roles": [],
+                    "permissions": [
+                      "rolesSave"
+                    ],
+                    "createdAt": 1663788729,
+                    "updatedAt": 1663788855
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "User not found.",
+                  "errorCode": "shared.exceptions.notFound",
+                  "errors": null,
+                  "metadata": {
+                    "entity": "User"
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -2832,8 +3004,44 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "Successful response"
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example":{
+                  "data": {
+                    "id": "e4101ce3-fe3d-4df6-94cd-646b24577a7f",
+                    "message": "Updated successfully"
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Failed Request.",
+                  "errorCode": null,
+                  "errors": [
+                    {
+                      "property": "passwordConfirmation",
+                      "constraints": {
+                        "Match": ""
+                      }
+                    }
+                  ],
+                  "metadata": {}
+                }
+              }
+            }
           }
         }
       }
@@ -2931,8 +3139,44 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "Successful response"
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example":{
+                  "data": {
+                    "id": "ac0e6642-5b63-4f91-a763-7dd92cf3ab43",
+                    "message": "Updated successfully"
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Failed Request.",
+                  "errorCode": null,
+                  "errors": [
+                    {
+                      "property": "rolesId",
+                      "constraints": {
+                        "isUuid": "each value in rolesId must be a UUID"
+                      }
+                    }
+                  ],
+                  "metadata": {}
+                }
+              }
+            }
           }
         }
       }
@@ -2985,8 +3229,37 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "Successful response"
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example":{
+                  "data": {
+                    "id": "55dec937-cfd7-48fb-ba08-9d99bdd3ba9a",
+                    "message": "created successfully"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Duplicate entity.",
+                  "errorCode": "app.presentation.exceptions.duplicateEntity",
+                  "errors": null,
+                  "metadata": {}
+                }
+              }
+            }
           }
         }
       },
@@ -3044,7 +3317,46 @@
         ],
         "responses": {
           "200": {
-            "description": "Successful response"
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "id": "20b88c02-b029-4dc6-b49c-61763a2e20cf",
+                      "name": "Admin",
+                      "slug": "admin",
+                      "permissions": [
+                        "all"
+                      ],
+                      "enable": true,
+                      "createdAt": 1663605213,
+                      "updatedAt": 1663780687
+                    }
+                  ],
+                  "metadata": {},
+                  "pagination": {
+                    "total": 1,
+                    "offset": 0,
+                    "limit": 20,
+                    "perPage": 1,
+                    "currentPage": 1,
+                    "lastPage": 1,
+                    "from": 0,
+                    "to": 1,
+                    "path": "http://localhost:8089/api",
+                    "firstUrl": "http://localhost:8089/api/roles?pagination[limit]=20&pagination[offset]=0&filter[slug]=admin",
+                    "lastUrl": "http://localhost:8089/api/roles?pagination[limit]=20&pagination[offset]=0&filter[slug]=admin",
+                    "nextUrl": null,
+                    "prevUrl": null,
+                    "currentUrl": "http://localhost:8089/api/roles?pagination[limit]=20&pagination[offset]=0&filter[slug]=admin"
+                  }
+                }
+              }
+            }
           }
         }
       }
