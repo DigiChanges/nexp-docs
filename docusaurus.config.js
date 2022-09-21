@@ -9,7 +9,7 @@ const config = {
   title: 'NExp Docs',
   tagline: 'The Node Experience',
   url: 'https://digichanges.com',
-  baseUrl: '/',
+  baseUrl: '/nexp-docs/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
