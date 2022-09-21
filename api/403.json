@@ -1,0 +1,16 @@
+{
+  "description": "Forbidden",
+    "content": {
+      "application/json": {
+        "schema": {
+        "type": "object"
+      },
+      "example": {
+        "message": "Error credentials.",
+        "errorCode": "auth.domain.exceptions.badCredentials",
+        "errors": null,
+        "metadata": {}
+      }
+    }
+  }
+}

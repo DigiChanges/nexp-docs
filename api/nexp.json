@@ -227,20 +227,7 @@
             }
           },
           "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object"
-                },
-                "example": {
-    "message": "Error credentials.",
-    "errorCode": "auth.domain.exceptions.badCredentials",
-    "errors": null,
-    "metadata": {}
-}
-              }
-            }
+            "$ref": "./403.json"
           },
           "422": {
             "description": "Unprocessable Entity",
@@ -544,7 +531,7 @@
         "summary": "Get Permissions",
         "security": [
           {
-            "bearerAuth": ["Bearer {JWT}"]
+            "bearerAuth": []
           }
         ],
         "responses": {
