@@ -1,0 +1,110 @@
+{
+  "Access-Control-Allow-Origin": {
+    "schema": {
+      "type": "string",
+      "example": "*"
+    }
+  },
+  "Access-Control-Allow-Methods": {
+    "schema": {
+      "type": "string",
+      "example": "GET,HEAD,PUT,POST,DELETE"
+    }
+  },
+  "Access-Control-Allow-Credentials": {
+    "schema": {
+      "type": "string",
+      "example": "true"
+    }
+  },
+  "Content-Security-Policy": {
+    "schema": {
+      "type": "string",
+      "example": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+    }
+  },
+  "X-DNS-Prefetch-Control": {
+    "schema": {
+      "type": "string",
+      "example": "off"
+    }
+  },
+  "Expect-CT": {
+    "schema": {
+      "type": "string",
+      "example": "max-age=0"
+    }
+  },
+  "X-Frame-Options": {
+    "schema": {
+      "type": "string",
+      "example": "SAMEORIGIN"
+    }
+  },
+  "Strict-Transport-Security": {
+    "schema": {
+      "type": "string",
+      "example": "max-age=15552000; includeSubDomains"
+    }
+  },
+  "X-Download-Options": {
+    "schema": {
+      "type": "string",
+      "example": "noopen"
+    }
+  },
+  "X-Content-Type-Options": {
+    "schema": {
+      "type": "string",
+      "example": "nosniff"
+    }
+  },
+  "X-Permitted-Cross-Domain-Policies": {
+    "schema": {
+      "type": "string",
+      "example": "none"
+    }
+  },
+  "Referrer-Policy": {
+    "schema": {
+      "type": "string",
+      "example": "no-referrer"
+    }
+  },
+  "X-XSS-Protection": {
+    "schema": {
+      "type": "integer",
+      "example": "0"
+    }
+  },
+  "Content-Type": {
+    "schema": {
+      "type": "string",
+      "example": "application/json; charset=utf-8"
+    }
+  },
+  "Content-Length": {
+    "schema": {
+      "type": "integer",
+      "example": "123"
+    }
+  },
+  "Date": {
+    "schema": {
+      "type": "string",
+      "example": "Mon, 25 Oct 2021 18:51:16 GMT"
+    }
+  },
+  "Connection": {
+    "schema": {
+      "type": "string",
+      "example": "keep-alive"
+    }
+  },
+  "Keep-Alive": {
+    "schema": {
+      "type": "string",
+      "example": "timeout=5"
+    }
+  }
+}

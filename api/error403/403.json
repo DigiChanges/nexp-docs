@@ -1,6 +1,6 @@
 {
   "description": "Forbidden",
-    "content": {
+  "content": {
       "application/json": {
         "schema": {
         "type": "object"
@@ -13,5 +13,4 @@
       }
     }
   }
-
 }
