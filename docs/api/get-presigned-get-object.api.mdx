@@ -1,0 +1,35 @@
+---
+id: get-presigned-get-object
+sidebar_label: Get Presigned Get Object
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["File"],"requestBody":{"content":{"application/json":{"schema":{"type":"object","example":{"filename":"01.-_dar-kunor.mp3","expiry":3000}}}}},"security":[{"bearerAuth":[]}],"parameters":[{"name":"Content-Type","in":"header","schema":{"type":"string"},"example":"application/json"},{"name":"isPublic","in":"query","schema":{"type":"boolean"},"example":"false"}],"responses":{"200":{"description":"Ok","content":{"application/json":{"schema":{"type":"object"},"example":{"data":{"presignedGetObject":"http://minio:9000/experience.public/data/0085553e-9f7d-4109-82b8-73a6122073ba?Content-Type=image%2Fpng&Content-Length=-507&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio%2F20220921%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220921T153753Z&X-Amz-Expires=3000&X-Amz-SignedHeaders=host&X-Amz-Signature=95e01e4413c9791c570976e7888e5926184372aef8b7bf3b993e4b314e051813"}}}}},"400":{"description":"Bad Request","content":{"application/json":{"schema":{"type":"object"},"example":{"message":"File not found.","errorCode":"shared.exceptions.notFound","errors":null,"metadata":{"entity":"File"}}}}}},"description":"Get Presigned Get Object","method":"post","path":"/api/files/presigned-get-object","servers":[{"url":"http://{{url}}"}],"securitySchemes":{"BearerAuth":{"type":"http","scheme":"bearer"}},"jsonRequestBodyExample":{"filename":"01.-_dar-kunor.mp3","expiry":3000},"info":{"title":"Node Experience","description":"Open API Specification","version":"0.0.1","x-logo":{"url":"https://raw.githubusercontent.com/DigiChanges/node-experience/docs/RABC/readme/NExp.svg","backgroundColor":"#FFFFFF","altText":"NExp"},"contact":{"name":"Nathan M. Russo","url":"https://www.linkedin.com/in/nathan-m-russo","email":"nathan@digichanges.com"},"license":{"name":"MIT","url":"https://es.wikipedia.org/wiki/Licencia_MIT"}},"postman":{"name":"Get Presigned Get Object","description":{"type":"text/plain"},"url":{"path":["api","files","presigned-get-object"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"key":"isPublic","value":""}],"variable":[]},"header":[{"key":"Content-Type","value":"application/json"},{"key":"Accept","value":"application/json"}],"method":"POST","body":{"mode":"raw","raw":"\"\"","options":{"raw":{"language":"json"}}}}}
+sidebar_class_name: "post api-method"
+info_path: docs/api/node-experience
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem"
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Get Presigned Get Object
+
+
+
+Get Presigned Get Object
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"isPublic","in":"query","schema":{"type":"boolean"},"example":"false"}}></ParamsItem></ul></div></details><details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Header Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"Content-Type","in":"header","schema":{"type":"string"},"example":"application/json"}}></ParamsItem></ul></div></details><MimeTabs><TabItem label={"application/json"} value={"application/json-schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Request Body</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>object</strong></div></li></ul></details></TabItem></MimeTabs><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Ok
+
+</div><div><MimeTabs groupId={"mime-type"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs groupId={"schema-tabs"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>object</strong></div></li></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{}"} language={"json"}></ResponseSamples></TabItem><TabItem label={"Example"} value={"Example"}><ResponseSamples responseExample={"{\n  \"data\": {\n    \"presignedGetObject\": \"http://minio:9000/experience.public/data/0085553e-9f7d-4109-82b8-73a6122073ba?Content-Type=image%2Fpng&Content-Length=-507&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio%2F20220921%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220921T153753Z&X-Amz-Expires=3000&X-Amz-SignedHeaders=host&X-Amz-Signature=95e01e4413c9791c570976e7888e5926184372aef8b7bf3b993e4b314e051813\"\n  }\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"400"} value={"400"}><div>
+
+Bad Request
+
+</div><div><MimeTabs groupId={"mime-type"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs groupId={"schema-tabs"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>object</strong></div></li></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{}"} language={"json"}></ResponseSamples></TabItem><TabItem label={"Example"} value={"Example"}><ResponseSamples responseExample={"{\n  \"message\": \"File not found.\",\n  \"errorCode\": \"shared.exceptions.notFound\",\n  \"errors\": null,\n  \"metadata\": {\n    \"entity\": \"File\"\n  }\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div>
+      
