@@ -1,0 +1,16 @@
+{
+  "description": "Forbidden",
+    "content": {
+      "application/json": {
+        "schema": {
+        "type": "object"
+      },
+      "example": {
+        "message": "Invalid token.",
+        "errorCode": "auth.presentation.exceptions.tokenExpired",
+        "errors": null,
+        "metadata": {}
+      }
+    }
+  }
+}
