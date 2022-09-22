@@ -1,5 +1,8 @@
 {
   "description": "Forbidden",
+  "headers": {
+    "$ref": "/headers/baseHeadersResponse.json"
+  },
   "content": {
       "application/json": {
         "schema": {
