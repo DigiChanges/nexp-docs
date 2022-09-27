@@ -1,7 +1,7 @@
 {
   "description": "Forbidden",
   "headers": {
-    "$ref": "/headers/baseHeadersResponse.json"
+    "$ref": "../headers/basicHeadersResponse.json"
   },
   "content": {
       "application/json": {

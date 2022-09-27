@@ -1,0 +1,3546 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Node Experience",
+    "description": "Open API Specification",
+    "version": "0.0.1",
+    "x-logo": {
+      "url": "https://raw.githubusercontent.com/DigiChanges/node-experience/docs/RABC/readme/NExp.svg",
+      "backgroundColor": "#FFFFFF",
+      "altText": "NExp"
+    },
+    "contact": {
+      "name": "Nathan M. Russo",
+      "url": "https://www.linkedin.com/in/nathan-m-russo",
+      "email": "nathan@digichanges.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://es.wikipedia.org/wiki/Licencia_MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://{{url}}"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Auth"
+    },
+    {
+      "name": "File"
+    },
+    {
+      "name": "Item"
+    },
+    {
+      "name": "Notifications"
+    },
+    {
+      "name": "Role"
+    },
+    {
+      "name": "User"
+    }
+  ],
+  "paths": {
+    "/api/auth/login": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Login User",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "email": "user@node.com",
+                  "password": "12345678"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "provider",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "local"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "$ref": "/headers/authHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "user": {
+                      "id": "de1212e9-0338-4f83-9dd8-2b409d2064a3",
+                      "firstName": "super",
+                      "lastName": "admin",
+                      "email": "superadmin@node.com",
+                      "enable": true,
+                      "permissions": [
+                        "all"
+                      ],
+                      "roles": [
+                        {
+                          "id": "17269e04-50d7-4782-bb70-bb85fadd786e",
+                          "name": "SuperAdmin",
+                          "slug": "superadmin",
+                          "enable": true,
+                          "createdAt": 1639501569,
+                          "updatedAt": 1639501840
+                        }
+                      ],
+                      "createdAt": 1639501569,
+                      "updatedAt": 1639501569
+                    },
+                    "expires": 1639537862,
+                    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpZCI6ImNjMzE2YWM5LTE5NGUtNGM0Zi04NzkyLWFjOGIwMTNkY2NiNiIsImlzcyI6ImRpZ2ljaGFuZ2VzIiwiYXVkIjoiZGlnaWNoYW5nZXMuY29tIiwic3ViIjoic3VwZXJhZG1pbkBub2RlLmNvbSIsImlhdCI6MTYzOTUzNzg2MiwiZXhwIjoxNjM5NTM3ODYyLCJ1c2VySWQiOiJkZTEyMTJlOS0wMzM4LTRmODMtOWRkOC0yYjQwOWQyMDY0YTMiLCJlbWFpbCI6InN1cGVyYWRtaW5Abm9kZS5jb20ifQ.sArO11LSdL8hzHeQWhfJvwyRGz5ncFylvdrHTCA9E_p10rTAmgRGzr__iMx9tkkWYxFgtEi_ljosV1rZYNCh7w"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "/error403/403.json"
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "headers": {
+              "$ref": "/headers/authHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+    "message": "Failed Request.",
+    "errorCode": null,
+    "errors": [
+        {
+            "property": "email",
+            "constraints": {
+                "isEmail": "email must be an email"
+            }
+        },
+        {
+            "property": "password",
+            "constraints": {
+                "isLength": "password must be longer than or equal to undefined and shorter than or equal to undefined characters",
+                "isString": "password must be a string"
+            }
+        }
+    ],
+    "metadata": {}
+}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/signup": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "SignUp",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "firstName": "Jhon",
+                  "lastName": "Doe",
+                  "email": "john-doe@mail.com",
+                  "password": "12345678",
+                  "passwordConfirmation": "12345678",
+                  "birthday": "04/07/1990",
+                  "documentType": "dni",
+                  "documentNumber": "2610907",
+                  "gender": "male",
+                  "phone": "2234456998",
+                  "country": "AR",
+                  "address": "Don Trusted 123"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "noauthAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "$ref": "/headers/authHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "message": "You have sign up successfully.",
+                    "messageCode": "auth.domain.messages.register"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "$ref": "/headers/authHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+
+                    "message": "The email property is already in use.",
+                    "errorCode": "app.domain.exceptions.uniqueAttribute",
+                    "errors": null,
+                    "metadata": {
+                      "replace": {
+                        "name": "email"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "/error403/403JWT.json"
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "schema": {
+                  "type": "string",
+                  "example": "*"
+                }
+              },
+              "Access-Control-Allow-Methods": {
+                "schema": {
+                  "type": "string",
+                  "example": "GET,HEAD,PUT,POST,DELETE"
+                }
+              },
+              "Content-Security-Policy": {
+                "schema": {
+                  "type": "string",
+                  "example": "default-src 'self';base-uri 'self';block-all-mixed-content;font-src 'self' https: data:;frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+                }
+              },
+              "X-DNS-Prefetch-Control": {
+                "schema": {
+                  "type": "string",
+                  "example": "off"
+                }
+              },
+              "Expect-CT": {
+                "schema": {
+                  "type": "string",
+                  "example": "max-age=0"
+                }
+              },
+              "X-Frame-Options": {
+                "schema": {
+                  "type": "string",
+                  "example": "SAMEORIGIN"
+                }
+              },
+              "Strict-Transport-Security": {
+                "schema": {
+                  "type": "string",
+                  "example": "max-age=15552000; includeSubDomains"
+                }
+              },
+              "X-Download-Options": {
+                "schema": {
+                  "type": "string",
+                  "example": "noopen"
+                }
+              },
+              "X-Content-Type-Options": {
+                "schema": {
+                  "type": "string",
+                  "example": "nosniff"
+                }
+              },
+              "X-Permitted-Cross-Domain-Policies": {
+                "schema": {
+                  "type": "string",
+                  "example": "none"
+                }
+              },
+              "Referrer-Policy": {
+                "schema": {
+                  "type": "string",
+                  "example": "no-referrer"
+                }
+              },
+              "X-XSS-Protection": {
+                "schema": {
+                  "type": "integer",
+                  "example": "0"
+                }
+              },
+              "Content-Type": {
+                "schema": {
+                  "type": "string",
+                  "example": "application/json; charset=utf-8"
+                }
+              },
+              "Content-Length": {
+                "schema": {
+                  "type": "integer",
+                  "example": "664"
+                }
+              },
+              "Date": {
+                "schema": {
+                  "type": "string",
+                  "example": "Mon, 25 Oct 2021 18:51:16 GMT"
+                }
+              },
+              "Connection": {
+                "schema": {
+                  "type": "string",
+                  "example": "keep-alive"
+                }
+              },
+              "Keep-Alive": {
+                "schema": {
+                  "type": "string",
+                  "example": "timeout=5"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                    "message": "Failed Request.",
+                    "errorCode": null,
+                    "errors": [
+                      {
+                        "property": "email",
+                        "constraints": {
+                          "isEmail": "email must be an email"
+                        }
+                      },
+                      {
+                        "property": "password",
+                        "constraints": {
+                          "isString": "password must be a string",
+                          "isLength": "password must be longer than or equal to undefined and shorter than or equal to undefined characters"
+                        }
+                      },
+                      {
+                        "property": "passwordConfirmation",
+                        "constraints": {
+                          "isString": "passwordConfirmation must be a string",
+                          "isLength": "passwordConfirmation must be longer than or equal to undefined and shorter than or equal to undefined characters"
+                        }
+                      }
+                    ],
+                    "metadata": {}
+                  }
+              }
+            }
+          }
+        }
+        }
+      },
+    "/api/auth/refresh-token": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Refresh Token",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": ""
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "headers": {
+              "$ref": "/headers/authHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "user": {
+                      "id": "2abb906f-9105-46e2-ac95-738fa9ec5b77",
+                      "firstName": "node",
+                      "lastName": "node",
+                      "email": "user@node.com",
+                      "enable": true,
+                      "permissions": [],
+                      "isSuperAdmin": false,
+                      "roles": [
+                        {
+                          "id": "20b88c02-b029-4dc6-b49c-61763a2e20cf",
+                          "name": "Admin",
+                          "slug": "admin",
+                          "enable": true,
+                          "createdAt": 1663605213,
+                          "updatedAt": 1663605213
+                        }
+                      ],
+                      "createdAt": 1663605213,
+                      "updatedAt": 1663605228
+                    },
+                    "expires": 1663808546,
+                    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpZCI6IjRmNjRkODI5LTFmYjctNDlkZC1iYjJhLTgyMWM2ZWNkNzYyZiIsImlzcyI6ImRpZ2ljaGFuZ2VzIiwiYXVkIjoiZGlnaWNoYW5nZXMuY29tIiwic3ViIjoidXNlckBub2RlLmNvbSIsImlhdCI6MTY2MzgwODU0NiwiZXhwIjoxNjYzODA4NTQ2LCJ1c2VySWQiOiIyYWJiOTA2Zi05MTA1LTQ2ZTItYWM5NS03MzhmYTllYzViNzciLCJlbWFpbCI6InVzZXJAbm9kZS5jb20ifQ.LDEIuT8kd_7gblWm3rfcyeHgA4BgJBNzrMjQSWpOgiL1Tpx7X1cJIVKnEtR0HnTRQPcde0v1T9UADuOAPPmOvA"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "/error403/403JWT.json"
+          }
+        }
+      }
+    },
+    "/api/auth/forgot-password": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Forgot Password",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "email": "superadmin@node.com"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "message": "We've sent you an email.",
+                    "messageCode": "auth.domain.messages.forgotPassword"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "User not found.",
+                  "errorCode": "shared.exceptions.notFound",
+                  "errors": null,
+                  "metadata": {
+                    "entity": "User"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "/error403/403JWT.json"
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Failed Request.",
+                  "errorCode": null,
+                  "errors": [
+                    {
+                      "property": "email",
+                      "constraints": {
+                        "isEmail": "email must be an email"
+                      }
+                    }
+                  ],
+                  "metadata": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/change-forgot-password": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Change Forgot Password",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "confirmationToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJkaWdpY2hhbmdlcyIsImF1ZCI6ImRpZ2ljaGFuZ2VzLmNvbSIsInN1YiI6InN1cGVyYWRtaW5Abm9kZS5jb20iLCJpYXQiOjE2NTg4NjgyODQsImV4cCI6MTY1ODg2ODI4NCwiZW1haWwiOiJzdXBlcmFkbWluQG5vZGUuY29tIn0.or6UquBAOuGC4Q6wKtHiQGNDGTk5ZKMmoj4K50Pg5m0fqnnQ3tlLaBV66B6shcGpo25LTBtKurXx8TbQxB-Zhw",
+                  "password": "cucamonga",
+                  "passwordConfirmation": "cucamonga"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "message": "You have change your password successfully.",
+                    "messageCode": "auth.domain.messages.changeForgotPassword"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Failed Request.",
+                  "errorCode": null,
+                  "errors": [
+                    {
+                      "property": "password",
+                      "constraints": {
+                        "isString": "password must be a string",
+                        "isLength": "password must be longer than or equal to undefined and shorter than or equal to undefined characters"
+                      }
+                    },
+                    {
+                      "property": "passwordConfirmation",
+                      "constraints": {
+                        "Match": ""
+                      }
+                    }
+                  ],
+                  "metadata": {}                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/verify-your-account/{confirmationToken}": {
+      "put": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Verify your account",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": ""
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "noauthAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "confirmationToken",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "example": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJkaWdpY2hhbmdlcyIsImF1ZCI6ImRpZ2ljaGFuZ2VzLmNvbSIsInN1YiI6ImpvaG4tZG9lM0BtYWlsLmNvbSIsImlhdCI6MTY1MTAxMzczMSwiZXhwIjoxNjUxMDEzNzMxLCJlbWFpbCI6ImpvaG4tZG9lM0BtYWlsLmNvbSJ9.Jg8mm7J4KtvPBXnpKoGxslqsJE-6owuVx3ZRrRpmcB61pxPrxuY4JLWEil41hyORD4Vbvd9h-mA-Giy5Sz4QJA"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "message": "auth.domain.messages.verifiedAccount",
+                    "messageCode": "auth.domain.messages.verifiedAccount"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          }
+        }
+      }
+    },
+    "/api/auth/me": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Me",
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "id": "2abb906f-9105-46e2-ac95-738fa9ec5b77",
+                    "firstName": "node",
+                    "lastName": "node",
+                    "email": "user@node.com",
+                    "birthday": "04/07/1990",
+                    "documentType": "DNI",
+                    "documentNumber": "12345678",
+                    "gender": "male",
+                    "phone": "541112345678",
+                    "country": "AR",
+                    "address": "av.1234",
+                    "enable": true,
+                    "roles": [
+                      {
+                        "id": "20b88c02-b029-4dc6-b49c-61763a2e20cf",
+                        "name": "Admin",
+                        "slug": "admin",
+                        "permissions": [],
+                        "enable": true,
+                        "createdAt": 1663605213,
+                        "updatedAt": 1663605213
+                      }
+                    ],
+                    "permissions": [],
+                    "createdAt": 1663605213,
+                    "updatedAt": 1663772883
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Me",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "firstName": "Roxnny A",
+                  "lastName": "Barrios C",
+                  "email": "roxnny.barrios@gmail.com",
+                  "birthday": "04/07/1991",
+                  "documentType": "dni",
+                  "documentNumber": "26109099",
+                  "gender": "female",
+                  "phone": "2234456997",
+                  "country": "AF",
+                  "address": "Don Trusted 124"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "message": "auth.domain.messages.verifiedAccount",
+                    "messageCode": "auth.domain.messages.verifiedAccount"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          }
+        }
+      }
+    },
+    "/api/auth/logout": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Logout",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": ""
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "message": "You have logged out successfully.",
+                    "messageCode": "auth.domain.messages.logout"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          }
+        }
+      }
+    },
+    "/api/auth/permissions": {
+      "get": {
+        "tags": [
+          "Auth"
+        ],
+        "summary": "Get Permissions",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "group": "AUTH",
+                      "permissions": [
+                        "authSyncPermissions",
+                        "getPermissions"
+                      ]
+                    },
+                    {
+                      "group": "ITEMS",
+                      "permissions": [
+                        "itemsSave",
+                        "itemsUpdate",
+                        "itemsShow",
+                        "itemsList",
+                        "itemsDelete"
+                      ]
+                    },
+                    {
+                      "group": "USERS",
+                      "permissions": [
+                        "usersSave",
+                        "usersUpdate",
+                        "usersShow",
+                        "usersList",
+                        "usersDelete",
+                        "usersAssignRole",
+                        "usersChangeMyPassword",
+                        "usersChangeUserPassword"
+                      ]
+                    },
+                    {
+                      "group": "FILES",
+                      "permissions": [
+                        "filesUpload",
+                        "filesUpdate",
+                        "filesDelete",
+                        "filesDownload",
+                        "filesList",
+                        "filesShowMetadata"
+                      ]
+                    },
+                    {
+                      "group": "ROLES",
+                      "permissions": [
+                        "rolesSave",
+                        "rolesUpdate",
+                        "rolesShow",
+                        "rolesList",
+                        "rolesDelete"
+                      ]
+                    },
+                    {
+                      "group": "OTHERS",
+                      "permissions": [
+                        "all"
+                      ]
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          }
+        }
+      }
+    },
+    "/api/files/base64": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Upload file by Base64",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "filename": "photo.png",
+                  "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII="
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "hasOriginalName",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": "false"
+          },
+          {
+            "name": "isPublic",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": "true"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "id": "0085553e-9f7d-4109-82b8-73a6122073ba",
+                    "name": "0085553e-9f7d-4109-82b8-73a6122073ba",
+                    "originalName": "photo.png",
+                    "extension": "png",
+                    "path": "/",
+                    "mimeType": "image/png",
+                    "size": -507,
+                    "version": 1,
+                    "isPublic": true,
+                    "createdAt": 1663774494,
+                    "updatedAt": 1663774494
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Failed Request.",
+                  "errorCode": null,
+                  "errors": [
+                    {
+                      "property": "extension",
+                      "constraints": {
+                        "isString": "extension must be a string"
+                      }
+                    }
+                  ],
+                  "metadata": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/files/presigned-get-object": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Get Presigned Get Object",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "filename": "01.-_dar-kunor.mp3",
+                  "expiry": 3000
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "isPublic",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": "false"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "presignedGetObject": "http://minio:9000/experience.public/data/0085553e-9f7d-4109-82b8-73a6122073ba?Content-Type=image%2Fpng&Content-Length=-507&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=minio%2F20220921%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20220921T153753Z&X-Amz-Expires=3000&X-Amz-SignedHeaders=host&X-Amz-Signature=95e01e4413c9791c570976e7888e5926184372aef8b7bf3b993e4b314e051813"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "File not found.",
+                  "errorCode": "shared.exceptions.notFound",
+                  "errors": null,
+                  "metadata": {
+                    "entity": "File"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          }
+        }
+      }
+    },
+    "/api/files": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Upload file by Multipart",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "hasOriginalName",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": "true"
+          },
+          {
+            "name": "isPublic",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": "false"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "id": "33f6dcad-b685-482a-87b6-9cfe1277e60d",
+                    "name": "image.png",
+                    "originalName": "image.png",
+                    "extension": "png",
+                    "path": "/",
+                    "mimeType": "image/png",
+                    "size": 3515330,
+                    "version": 1,
+                    "isPublic": false,
+                    "createdAt": 1663774728,
+                    "updatedAt": 1663774728
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Duplicate entity.",
+                  "errorCode": "app.presentation.exceptions.duplicateEntity",
+                  "errors": null,
+                  "metadata": {}
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Get Files Filter",
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "pagination[limit]",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "30"
+          },
+          {
+            "name": "pagination[offset]",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "0"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "id": "0085553e-9f7d-4109-82b8-73a6122073ba",
+                      "name": "0085553e-9f7d-4109-82b8-73a6122073ba",
+                      "originalName": "photo.png",
+                      "extension": "png",
+                      "path": "/",
+                      "mimeType": "image/png",
+                      "size": -507,
+                      "version": 1,
+                      "isPublic": true,
+                      "createdAt": 1663774494,
+                      "updatedAt": 1663774494
+                    },
+                    {
+                      "id": "ce8f6d4e-153a-4804-a3a5-44ffbb93166e",
+                      "name": "ce8f6d4e-153a-4804-a3a5-44ffbb93166e",
+                      "originalName": "image.png",
+                      "extension": "png",
+                      "path": "/",
+                      "mimeType": "image/png",
+                      "size": 3515330,
+                      "version": 1,
+                      "isPublic": false,
+                      "createdAt": 1663774786,
+                      "updatedAt": 1663774786
+                    },
+                    {
+                      "id": "33f6dcad-b685-482a-87b6-9cfe1277e60d",
+                      "name": "image.png",
+                      "originalName": "image.png",
+                      "extension": "png",
+                      "path": "/",
+                      "mimeType": "image/png",
+                      "size": 3515330,
+                      "version": 1,
+                      "isPublic": false,
+                      "createdAt": 1663774728,
+                      "updatedAt": 1663774728
+                    }
+                  ],
+                  "metadata": {},
+                  "pagination": {
+                    "total": 3,
+                    "offset": 0,
+                    "limit": 30,
+                    "perPage": 3,
+                    "currentPage": 1,
+                    "lastPage": 1,
+                    "from": 0,
+                    "to": 3,
+                    "path": "http://localhost:8089/api",
+                    "firstUrl": "http://localhost:8089/api/files?pagination[limit]=30&pagination[offset]=0",
+                    "lastUrl": "http://localhost:8089/api/files?pagination[limit]=30&pagination[offset]=0",
+                    "nextUrl": null,
+                    "prevUrl": null,
+                    "currentUrl": "http://localhost:8089/api/files?pagination[limit]=30&pagination[offset]=0"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          }
+        }
+      }
+    },
+    "/api/files/{FILE_ID}": {
+      "get": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Get File",
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "FILE_ID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "headers": {
+              "$ref": "/headers/fileHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "File not found.",
+                  "errorCode": "shared.exceptions.notFound",
+                  "errors": null,
+                  "metadata": {
+                    "entity": "File"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Update file by Multipart",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "FILE_ID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "id": "ce8f6d4e-153a-4804-a3a5-44ffbb93166e",
+                    "name": "ce8f6d4e-153a-4804-a3a5-44ffbb93166e",
+                    "originalName": "image.png",
+                    "extension": "png",
+                    "path": "/",
+                    "mimeType": "image/png",
+                    "size": 3515330,
+                    "version": 1,
+                    "isPublic": false,
+                    "createdAt": 1663774786,
+                    "updatedAt": 1663774786
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Delete File",
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "FILE_ID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "id": "ce8f6d4e-153a-4804-a3a5-44ffbb93166e",
+                    "name": "ce8f6d4e-153a-4804-a3a5-44ffbb93166e",
+                    "originalName": "image.png",
+                    "extension": null,
+                    "path": "/",
+                    "mimeType": "dKGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII=",
+                    "size": -511,
+                    "version": 1,
+                    "isPublic": false,
+                    "createdAt": 1663774786,
+                    "updatedAt": 1663775243
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          }
+        }
+      }
+    },
+    "/api/files/metadata/{FILE_ID}": {
+      "get": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Get File Metadata",
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "FILE_ID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "id": "ce8f6d4e-153a-4804-a3a5-44ffbb93166e",
+                    "name": "ce8f6d4e-153a-4804-a3a5-44ffbb93166e",
+                    "originalName": "image.png",
+                    "extension": "png",
+                    "path": "/",
+                    "mimeType": "image/png",
+                    "size": 3515330,
+                    "version": 1,
+                    "isPublic": false,
+                    "createdAt": 1663774786,
+                    "updatedAt": 1663774786
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Failed Request.",
+                  "errorCode": null,
+                  "errors": [
+                    {
+                      "property": "id",
+                      "constraints": {
+                        "isUuid": "id must be a UUID"
+                      }
+                    }
+                  ],
+                  "metadata": {}
+                }
+              }
+            }
+          }
+
+        }
+      }
+    },
+    "/api/files/base64/{FILE_ID}": {
+      "put": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Update file by Base64",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "filename": "photo.png",
+                  "base64": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII="
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "FILE_ID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "id": "ce8f6d4e-153a-4804-a3a5-44ffbb93166e",
+                    "name": "ce8f6d4e-153a-4804-a3a5-44ffbb93166e",
+                    "originalName": "image.png",
+                    "extension": "png",
+                    "path": "/",
+                    "mimeType": "image/png",
+                    "size": -507,
+                    "version": 1,
+                    "isPublic": false,
+                    "createdAt": 1663774786,
+                    "updatedAt": 1663775208
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          }
+        }
+      }
+    },
+    "/api/files/objects": {
+      "get": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Get S3 Objects",
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "lastModified": 1663779665,
+                      "size": 0
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          }
+        }
+      }
+    },
+    "/api/items": {
+      "post": {
+        "tags": [
+          "Item"
+        ],
+        "summary": "Add Item",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "name": "Item 1",
+                  "type": 10
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "id": "f4c5ff8d-73d3-4ed6-bec1-9866b579bb90",
+                    "message": "created successfully"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Failed Request.",
+                  "errorCode": null,
+                  "errors": [
+                    {
+                      "property": "name",
+                      "constraints": {
+                        "isString": "name must be a string"
+                      }
+                    },
+                    {
+                      "property": "type",
+                      "constraints": {
+                        "isInt": "type must be an integer number"
+                      }
+                    }
+                  ],
+                  "metadata": {}
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Item"
+        ],
+        "summary": "Get Filter Item",
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "pagination[limit]",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "2"
+          },
+          {
+            "name": "pagination[offset]",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "0"
+          },
+          {
+            "name": "filter[type]",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "11"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "id": "f4c5ff8d-73d3-4ed6-bec1-9866b579bb90",
+                      "name": "Item 1",
+                      "type": 10,
+                      "createdBy": {
+                        "id": "e4101ce3-fe3d-4df6-94cd-646b24577a7f",
+                        "firstName": "super",
+                        "lastName": "admin",
+                        "email": "superadmin@node.com",
+                        "phone": "541112345678"
+                      },
+                      "lastModifiedBy": null,
+                      "createdAt": 1663779723,
+                      "updatedAt": 1663779723
+                    }
+                  ],
+                  "metadata": {},
+                  "pagination": {
+                    "total": 1,
+                    "offset": 0,
+                    "limit": 10,
+                    "perPage": 1,
+                    "currentPage": 1,
+                    "lastPage": 1,
+                    "from": 0,
+                    "to": 1,
+                    "path": "http://localhost:8089/api",
+                    "firstUrl": "http://localhost:8089/api/items?pagination[limit]=10&pagination[offset]=0",
+                    "lastUrl": "http://localhost:8089/api/items?pagination[limit]=10&pagination[offset]=0",
+                    "nextUrl": null,
+                    "prevUrl": null,
+                    "currentUrl": "http://localhost:8089/api/items?pagination[limit]=10&pagination[offset]=0"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          }
+        }
+      }
+    },
+    "/api/items/{ITEM_ID}": {
+      "get": {
+        "tags": [
+          "Item"
+        ],
+        "summary": "Get One Item",
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "ITEM_ID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "id": "f4c5ff8d-73d3-4ed6-bec1-9866b579bb90",
+                    "name": "Item 1",
+                    "type": 10,
+                    "createdBy": {
+                      "id": "e4101ce3-fe3d-4df6-94cd-646b24577a7f",
+                      "firstName": "super",
+                      "lastName": "admin",
+                      "email": "superadmin@node.com",
+                      "phone": "541112345678"
+                    },
+                    "lastModifiedBy": null,
+                    "createdAt": 1663779723,
+                    "updatedAt": 1663779723
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Item not found.",
+                  "errorCode": "shared.exceptions.notFound",
+                  "errors": null,
+                  "metadata": {
+                    "entity": "Item"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Item"
+        ],
+        "summary": "Update Item",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "name": "Item 1 update",
+                  "type": 11
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "ITEM_ID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "id": "f4c5ff8d-73d3-4ed6-bec1-9866b579bb90",
+                    "message": "Updated successfully"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Failed Request.",
+                  "errorCode": null,
+                  "errors": [
+                    {
+                      "property": "name",
+                      "constraints": {
+                        "isString": "name must be a string"
+                      }
+                    },
+                    {
+                      "property": "type",
+                      "constraints": {
+                        "isInt": "type must be an integer number"
+                      }
+                    }
+                  ],
+                  "metadata": {}
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Item"
+        ],
+        "summary": "Delete Item",
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "ITEM_ID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "id": "f4c5ff8d-73d3-4ed6-bec1-9866b579bb90",
+                    "name": "Item 1 update",
+                    "type": 11,
+                    "createdBy": {
+                      "id": "e4101ce3-fe3d-4df6-94cd-646b24577a7f",
+                      "firstName": "super",
+                      "lastName": "admin",
+                      "email": "superadmin@node.com",
+                      "phone": "541112345678"
+                    },
+                    "lastModifiedBy": {
+                      "id": "e4101ce3-fe3d-4df6-94cd-646b24577a7f",
+                      "firstName": "super",
+                      "lastName": "admin",
+                      "email": "superadmin@node.com",
+                      "phone": "541112345678"
+                    },
+                    "createdAt": 1663779723,
+                    "updatedAt": 1663780131
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Item not found.",
+                  "errorCode": "shared.exceptions.notFound",
+                  "errors": null,
+                  "metadata": {
+                    "entity": "Item"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          }
+        }
+      }
+    },
+    "/api/notifications/message": {
+      "post": {
+        "tags": [
+          "Notifications"
+        ],
+        "summary": "Send Push Notification",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "title": "POSTMAN !!!",
+                  "message": "Test message from postman!!",
+                  "subscription": {
+                    "endpoint": "https://fcm.googleapis.com/fcm/send/eg0gc8NA4jA:APA91bHYA86Rx0Hrsfnb-xDrfweiSrDL5J5ynFL6xrqKV3NoNzRUoYw8z0Z24KoBcZyDpAeQDjk4JTDhaD7YAB8VA7oMrz1hWFjDnYfa_flHjSmVG_JHTcAVDtkP2j10gfg7V7vCkqkB",
+                    "keys": {
+                      "p256dh": "BEqytDuJhvCeKOlQYLZKlbZnu_1twWwkObnAkud4PVjazgEbbXN2y0qc3TRJizapb57Tbl60xBa-P9ZKgSTEXvk",
+                      "auth": "mPe_jJftQbnWCKUb09JDlw"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          }
+        }
+      }
+    },
+    "/api/roles": {
+      "post": {
+        "tags": [
+          "Role"
+        ],
+        "summary": "Add Roles with Permissions",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "name": "Role2",
+                  "slug": "role2",
+                  "permissions": [
+                    "itemsCreate",
+                    "itemsUpdate",
+                    "itemsList",
+                    "itemsShow"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "id": "f424210b-fbae-4ab9-9519-505b34cce84c",
+                    "message": "created successfully"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Failed Request.",
+                  "errorCode": null,
+                  "errors": [
+                    {
+                      "property": "permissions",
+                      "constraints": {
+                        "isString": "each value in permissions must be a string"
+                      }
+                    }
+                  ],
+                  "metadata": {}
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Role"
+        ],
+        "summary": "Get Sort Role",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "pagination[limit]",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "2"
+          },
+          {
+            "name": "pagination[offset]",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "0"
+          },
+          {
+            "name": "sort[slug]",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "desc"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "id": "20b88c02-b029-4dc6-b49c-61763a2e20cf",
+                      "name": "Admin",
+                      "slug": "admin",
+                      "permissions": [
+                        "all"
+                      ],
+                      "enable": true,
+                      "createdAt": 1663605213,
+                      "updatedAt": 1663780687
+                    }
+                  ],
+                  "metadata": {},
+                  "pagination": {
+                    "total": 1,
+                    "offset": 0,
+                    "limit": 20,
+                    "perPage": 1,
+                    "currentPage": 1,
+                    "lastPage": 1,
+                    "from": 0,
+                    "to": 1,
+                    "path": "http://localhost:8089/api",
+                    "firstUrl": "http://localhost:8089/api/roles?pagination[limit]=20&pagination[offset]=0&filter[slug]=admin",
+                    "lastUrl": "http://localhost:8089/api/roles?pagination[limit]=20&pagination[offset]=0&filter[slug]=admin",
+                    "nextUrl": null,
+                    "prevUrl": null,
+                    "currentUrl": "http://localhost:8089/api/roles?pagination[limit]=20&pagination[offset]=0&filter[slug]=admin"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          }
+        }
+      }
+    },
+    "/api/roles/{ROLE_ID}": {
+      "get": {
+        "tags": [
+          "Role"
+        ],
+        "summary": "Get One Role",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "ROLE_ID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "id": "1a0b8e3b-15e7-4fe3-99ba-84d650230e49",
+                    "name": "Role3",
+                    "slug": "123",
+                    "permissions": [],
+                    "enable": true,
+                    "createdAt": 1663780561,
+                    "updatedAt": 1663780561
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Role not found.",
+                  "errorCode": "shared.exceptions.notFound",
+                  "errors": null,
+                  "metadata": {
+                    "entity": "Role"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Role"
+        ],
+        "summary": "Update Role",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "name": "Role_1",
+                  "slug": "role_1",
+                  "permissions": [
+                    "itemsSave"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "ROLE_ID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "id": "1a0b8e3b-15e7-4fe3-99ba-84d650230e49",
+                    "message": "Updated successfully"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Role not found.",
+                  "errorCode": "shared.exceptions.notFound",
+                  "errors": null,
+                  "metadata": {
+                    "entity": "Role"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Role"
+        ],
+        "summary": "Delete Role",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "ROLE_ID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "id": "1a0b8e3b-15e7-4fe3-99ba-84d650230e49",
+                    "name": "Role_1",
+                    "slug": "role_1",
+                    "permissions": [
+                      "itemsSave"
+                    ],
+                    "enable": true,
+                    "createdAt": 1663780561,
+                    "updatedAt": 1663781024
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Role not found.",
+                  "errorCode": "shared.exceptions.notFound",
+                  "errors": null,
+                  "metadata": {
+                    "entity": "Role"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          }
+        }
+      }
+    },
+    "/api/auth/sync-roles-permissions": {
+      "post": {
+        "tags": [
+          "Role"
+        ],
+        "summary": "Sync Permissions By Role",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "message": "Sync Successfully"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          }
+        }
+      }
+    },
+    "/api/users/{USER_ID}": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get One User",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "USER_ID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "id": "b38aa261-6c1d-4d14-85c9-61a743b61a10",
+                    "firstName": "Jhon",
+                    "lastName": "Doe",
+                    "email": "dgtest_1663781113508@node.com",
+                    "birthday": "04/07/1990",
+                    "documentType": "dni",
+                    "documentNumber": "37680858",
+                    "gender": "male",
+                    "phone": "2234456998",
+                    "country": "AR",
+                    "address": "Don Trusted 123",
+                    "enable": true,
+                    "roles": [],
+                    "permissions": [
+                      "rolesSave"
+                    ],
+                    "createdAt": 1663781113,
+                    "updatedAt": 1663781113
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "User not found.",
+                  "errorCode": "shared.exceptions.notFound",
+                  "errors": null,
+                  "metadata": {
+                    "entity": "User"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Failed Request.",
+                  "errorCode": null,
+                  "errors": [
+                    {
+                      "property": "id",
+                      "constraints": {
+                        "isUuid": "id must be a UUID"
+                      }
+                    }
+                  ],
+                  "metadata": {}
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Update User",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "firstName": "Jhon 1",
+                  "lastName": "Doe 1",
+                  "email": "{{EMAIL}}.ar",
+                  "birthday": "04/07/1991",
+                  "documentType": "dni",
+                  "documentNumber": "355134357",
+                  "gender": "female",
+                  "phone": "2234456997",
+                  "country": "AF",
+                  "address": "Don Trusted 124",
+                  "enable": true,
+                  "permissions": []
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "USER_ID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example":{
+                  "data": {
+                    "id": "b38aa261-6c1d-4d14-85c9-61a743b61a10",
+                    "message": "Updated successfully"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "User not found.",
+                  "errorCode": "shared.exceptions.notFound",
+                  "errors": null,
+                  "metadata": {
+                    "entity": "User"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Failed Request.",
+                  "errorCode": null,
+                  "errors": [
+                    {
+                      "property": "documentNumber",
+                      "constraints": {
+                        "isString": "documentNumber must be a string",
+                        "isLength": "documentNumber must be longer than or equal to 3 and shorter than or equal to 16 characters"
+                      }
+                    }
+                  ],
+                  "metadata": {}
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Delete User",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "USER_ID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "id": "ac0e6642-5b63-4f91-a763-7dd92cf3ab43",
+                    "firstName": "Jhon",
+                    "lastName": "Doe",
+                    "email": "john@doe.com",
+                    "birthday": "04/07/1990",
+                    "documentType": "dni",
+                    "documentNumber": "667651468",
+                    "gender": "male",
+                    "phone": "2234456998",
+                    "country": "AR",
+                    "address": "Don Trusted 123",
+                    "enable": true,
+                    "roles": [],
+                    "permissions": [
+                      "rolesSave"
+                    ],
+                    "createdAt": 1663788729,
+                    "updatedAt": 1663788855
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "User not found.",
+                  "errorCode": "shared.exceptions.notFound",
+                  "errors": null,
+                  "metadata": {
+                    "entity": "User"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          }
+        }
+      }
+    },
+    "/api/users/change-my-password": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Change My Password",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "currentPassword": "1234567891",
+                  "password": "1234567897",
+                  "passwordConfirmation": "1234567897"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example":{
+                  "data": {
+                    "id": "e4101ce3-fe3d-4df6-94cd-646b24577a7f",
+                    "message": "Updated successfully"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Failed Request.",
+                  "errorCode": null,
+                  "errors": [
+                    {
+                      "property": "passwordConfirmation",
+                      "constraints": {
+                        "Match": ""
+                      }
+                    }
+                  ],
+                  "metadata": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users/change-user-password/{USER_ID}": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Change User Password",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "password": "1234567811",
+                  "passwordConfirmation": "1234567811"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "USER_ID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "description": "Successful response"
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          }
+        }
+      }
+    },
+    "/api/users/assign-role/{USER_ID}": {
+      "put": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Assign Roles To User",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "rolesId": [
+                    "{{ROLE_ID}}"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "USER_ID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example":{
+                  "data": {
+                    "id": "ac0e6642-5b63-4f91-a763-7dd92cf3ab43",
+                    "message": "Updated successfully"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Failed Request.",
+                  "errorCode": null,
+                  "errors": [
+                    {
+                      "property": "rolesId",
+                      "constraints": {
+                        "isUuid": "each value in rolesId must be a UUID"
+                      }
+                    }
+                  ],
+                  "metadata": {}
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/users": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Add One User",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "firstName": "Jhon",
+                  "lastName": "Doe",
+                  "email": "{{EMAIL}}",
+                  "password": "12345678",
+                  "passwordConfirmation": "12345678",
+                  "birthday": "04/07/1990",
+                  "documentType": "dni",
+                  "documentNumber": "{{DNI}}",
+                  "gender": "male",
+                  "phone": "2234456998",
+                  "country": "AR",
+                  "address": "Don Trusted 123",
+                  "permissions": [
+                    "rolesSave"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example":{
+                  "data": {
+                    "id": "55dec937-cfd7-48fb-ba08-9d99bdd3ba9a",
+                    "message": "created successfully"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "message": "Duplicate entity.",
+                  "errorCode": "app.presentation.exceptions.duplicateEntity",
+                  "errors": null,
+                  "metadata": {}
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get Users Filter",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "pagination[limit]",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "4"
+          },
+          {
+            "name": "pagination[offset]",
+            "in": "query",
+            "schema": {
+              "type": "integer"
+            },
+            "example": "0"
+          },
+          {
+            "name": "filter[enable]",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": "true"
+          },
+          {
+            "name": "filter[email]",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "example": "user"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "headers": {
+              "$ref": "/headers/basicHeadersResponse.json"
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "id": "20b88c02-b029-4dc6-b49c-61763a2e20cf",
+                      "name": "Admin",
+                      "slug": "admin",
+                      "permissions": [
+                        "all"
+                      ],
+                      "enable": true,
+                      "createdAt": 1663605213,
+                      "updatedAt": 1663780687
+                    }
+                  ],
+                  "metadata": {},
+                  "pagination": {
+                    "total": 1,
+                    "offset": 0,
+                    "limit": 20,
+                    "perPage": 1,
+                    "currentPage": 1,
+                    "lastPage": 1,
+                    "from": 0,
+                    "to": 1,
+                    "path": "http://localhost:8089/api",
+                    "firstUrl": "http://localhost:8089/api/roles?pagination[limit]=20&pagination[offset]=0&filter[slug]=admin",
+                    "lastUrl": "http://localhost:8089/api/roles?pagination[limit]=20&pagination[offset]=0&filter[slug]=admin",
+                    "nextUrl": null,
+                    "prevUrl": null,
+                    "currentUrl": "http://localhost:8089/api/roles?pagination[limit]=20&pagination[offset]=0&filter[slug]=admin"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "error403/403JWT.json"
+          }
+        }
+      }
+    }
+  }
+}

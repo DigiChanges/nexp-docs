@@ -21,22 +21,23 @@ To begin with, you must understand that the project is divided by domains.
      * Factories - These are the factories that are used throughout the system.
      * Helpers
 
-TODO: Handlers
+* Handler - The handler belongs to the domain layer and is almost 100% assembled by libraries that handle inputs and responses. It captures the information from the requests, drives them to a concrete command, and delivers the response.
 
-TODO: Transformers
+* Transformer - The transformer is responsible for the data outputs, depending on the representation requirements. <averiguarDto>
 
-TODO: Entities
+* Entity - They represent domain objects. They are made up of fields and properties and the domain logic that belongs to that entity.
+Within entities is the interface or contract of the entity.
 
-TODO: Services
+* Services - When a domain operation is recognized as important, there are services where these activities are grouped.
 
-TODO: Repositories
+* Repository - It centralizes the logic to access the data sources through the chosen ORM. Encapsulates the set of stored objects, and the operations that can be performed on them.
 
-TODO: Commands
+* Commands - Commands allows configure and text commands to be entered via a computer terminal and they are then interpreted as a program is being executed.
 
-TODO: Middlewares
+* Middlewares - They provide services like managing authorize policy, throttle request, multer for uploading files, and others.
 
-TODO: Config
+* ./config - <repetida>
 
-TODO: Shared
+* Shared - <repetida>
 
-TODO: Config
+* src/config - <repetida>

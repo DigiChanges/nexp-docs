@@ -130,7 +130,8 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} DigiChanges, Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} <a href= "https://digichanges.com">DigiChanges</a>, Built with Docusaurus.`,
+
       },
       prism: {
         theme: lightCodeTheme,
