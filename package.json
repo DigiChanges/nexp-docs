@@ -5,6 +5,8 @@
   "homepage": "",
   "scripts": {
     "docusaurus": "./node_modules/.bin/docusaurus",
+    "gen-docs": "./node_modules/.bin/docusaurus gen-api-docs",
+    "clean-docs": "./node_modules/.bin/docusaurus clean-api-docs",
     "start": "./node_modules/.bin/docusaurus start",
     "build": "./node_modules/.bin/docusaurus build",
     "swizzle": "./node_modules/.bin/docusaurus swizzle",

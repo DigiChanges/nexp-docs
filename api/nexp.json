@@ -85,6 +85,7 @@
         "responses": {
           "201": {
             "description": "Created",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -195,6 +196,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -232,6 +235,7 @@
             }
           },
           "403": {
+<<<<<<< HEAD
             "$ref": "error403/403.json"
           },
           "422": {
@@ -346,31 +350,37 @@
     }
   }
 },
+=======
+            "$ref": "403/error.credentials.403.json"
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object"
                 },
                 "example": {
-    "message": "Failed Request.",
-    "errorCode": null,
-    "errors": [
-        {
-            "property": "email",
-            "constraints": {
-                "isEmail": "email must be an email"
-            }
-        },
-        {
-            "property": "password",
-            "constraints": {
-                "isLength": "password must be longer than or equal to undefined and shorter than or equal to undefined characters",
-                "isString": "password must be a string"
-            }
-        }
-    ],
-    "metadata": {}
-}
+                  "message": "Failed Request.",
+                  "errorCode": null,
+                  "errors": [
+                    {
+                      "property": "email",
+                      "constraints": {
+                          "isEmail": "email must be an email"
+                      }
+                    },
+                    {
+                      "property": "password",
+                      "constraints": {
+                          "isLength": "password must be longer than or equal to undefined and shorter than or equal to undefined characters",
+                          "isString": "password must be a string"
+                      }
+                    }
+                  ],
+                  "metadata": {}
+                }
               }
             }
           }
@@ -424,6 +434,7 @@
         "responses": {
           "201": {
             "description": "Created",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -534,6 +545,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -550,6 +563,7 @@
           },
           "400": {
             "description": "Bad Request",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -660,6 +674,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -680,7 +696,11 @@
             }
           },
           "403": {
+<<<<<<< HEAD
             "$ref": "error403/403JWT.json"
+=======
+            "$ref": "403/403JWT.json"
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
           },
           "422": {
             "description": "Unprocessable Entity",
@@ -851,6 +871,7 @@
         "responses": {
           "200": {
             "description": "Ok",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -961,6 +982,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -997,7 +1020,11 @@
             }
           },
           "403": {
+<<<<<<< HEAD
             "$ref": "error403/403JWT.json"
+=======
+            "$ref": "403/403JWT.json"
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
           }
         }
       }
@@ -1028,6 +1055,7 @@
         "responses": {
           "201": {
             "description": "Created",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -1138,6 +1166,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -1154,6 +1184,7 @@
           },
           "400": {
             "description": "Bad Request",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -1264,6 +1295,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -1281,6 +1314,7 @@
             }
           },
           "403": {
+<<<<<<< HEAD
             "$ref": "error403/403JWT.json"
           },
           "422": {
@@ -1395,6 +1429,12 @@
     }
   }
 },
+=======
+            "$ref": "403/403JWT.json"
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -1442,6 +1482,7 @@
         "responses": {
           "201": {
             "description": "Created",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -1552,6 +1593,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -1567,10 +1610,11 @@
             }
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           },
           "422": {
             "description": "Unprocessable Entity",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -1681,6 +1725,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -1754,6 +1800,7 @@
         "responses": {
           "201": {
             "description": "Created",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -1864,6 +1911,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -1879,7 +1928,7 @@
             }
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           }
         }
       }
@@ -1898,6 +1947,7 @@
         "responses": {
           "200": {
             "description": "Ok",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -2008,6 +2058,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -2047,7 +2099,7 @@
             }
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           }
         }
       },
@@ -2085,6 +2137,7 @@
         "responses": {
           "201": {
             "description": "Created",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -2195,6 +2248,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -2210,7 +2265,7 @@
             }
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           }
         }
       }
@@ -2239,6 +2294,7 @@
         "responses": {
           "200": {
             "description": "Ok",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -2349,6 +2405,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -2364,7 +2422,7 @@
             }
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           }
         }
       }
@@ -2383,6 +2441,7 @@
         "responses": {
           "200": {
             "description": "Ok",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -2493,6 +2552,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -2563,7 +2624,7 @@
             }
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           }
         }
       }
@@ -2621,6 +2682,7 @@
         "responses": {
           "201": {
             "description": "Created",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -2731,6 +2793,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -2755,10 +2819,11 @@
             }
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           },
           "422": {
             "description": "Unprocessable Entity",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -2869,6 +2934,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -2938,6 +3005,7 @@
         "responses": {
           "200": {
             "description": "Ok",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -3048,6 +3116,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -3063,6 +3133,7 @@
           },
           "400": {
             "description": "Bad Request",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -3173,6 +3244,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -3190,7 +3263,7 @@
             }
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           }
         }
       }
@@ -3250,6 +3323,7 @@
         "responses": {
           "201": {
             "description": "Created",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -3360,6 +3434,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -3385,6 +3461,7 @@
           },
           "400": {
             "description": "Bad Request",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -3495,6 +3572,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -3510,7 +3589,7 @@
             }
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           }
         }
       },
@@ -3553,6 +3632,7 @@
         "responses": {
           "200": {
             "description": "Ok",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -3663,6 +3743,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -3732,7 +3814,7 @@
             }
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           }
         }
       }
@@ -3761,6 +3843,7 @@
         "responses": {
           "200": {
             "description": "Ok",
+<<<<<<< HEAD
             "headers":{
               "Access-Control-Allow-Origin": {
                 "schema": {
@@ -3871,6 +3954,8 @@
                 }
               }
             },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -3900,7 +3985,7 @@
             }
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           }
         }
       },
@@ -3950,6 +4035,7 @@
         "responses": {
           "201": {
             "description": "Created",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -4060,6 +4146,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -4084,7 +4172,7 @@
             }
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           }
         }
       },
@@ -4111,6 +4199,7 @@
         "responses": {
           "201": {
             "description": "Created",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -4221,6 +4310,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -4245,7 +4336,7 @@
             }
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           }
         }
       }
@@ -4274,6 +4365,7 @@
         "responses": {
           "200": {
             "description": "Ok",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -4384,6 +4476,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -4408,10 +4502,11 @@
             }
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           },
           "422": {
             "description": "Unprocessable Entity",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -4522,6 +4617,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -4592,6 +4689,7 @@
         "responses": {
           "201": {
             "description": "Created",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -4702,6 +4800,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -4726,7 +4826,7 @@
             }
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           }
         }
       }
@@ -4755,6 +4855,7 @@
         "responses": {
           "200": {
             "description": "Ok",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -4865,6 +4966,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -4882,7 +4985,7 @@
             }
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           }
         }
       }
@@ -4924,6 +5027,7 @@
         "responses": {
           "201": {
             "description": "Created",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -5034,6 +5138,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -5049,10 +5155,11 @@
             }
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           },
           "422": {
             "description": "Unprocessable Entity",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -5163,6 +5270,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -5239,6 +5348,7 @@
         "responses": {
           "200": {
             "description": "Ok",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -5349,6 +5459,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -5394,7 +5506,7 @@
             }
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           }
         }
       }
@@ -5431,6 +5543,7 @@
         "responses": {
           "200": {
             "description": "Ok",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -5541,6 +5654,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -5568,6 +5683,7 @@
           },
           "400": {
             "description": "Bad Request",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -5678,6 +5794,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -5695,7 +5813,7 @@
             }
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           }
         }
       },
@@ -5743,6 +5861,7 @@
         "responses": {
           "201": {
             "description": "Created",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -5853,6 +5972,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -5868,10 +5989,11 @@
             }
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           },
           "422": {
             "description": "Unprocessable Entity",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -5982,6 +6104,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -6042,6 +6166,7 @@
         "responses": {
           "200": {
             "description": "Ok",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -6152,6 +6277,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -6185,6 +6312,7 @@
           },
           "400": {
             "description": "Bad Request",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -6295,6 +6423,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -6312,7 +6442,7 @@
             }
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           }
         }
       }
@@ -6408,6 +6538,7 @@
         "responses": {
           "201": {
             "description": "Created",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -6518,6 +6649,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -6533,10 +6666,11 @@
             }
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           },
           "422": {
             "description": "Unprocessable Entity",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -6647,6 +6781,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -6717,6 +6853,7 @@
         "responses": {
           "200": {
             "description": "Ok",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -6827,6 +6964,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -6868,7 +7007,7 @@
             }
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           }
         }
       }
@@ -6905,6 +7044,7 @@
         "responses": {
           "200": {
             "description": "Ok",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -7015,6 +7155,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -7036,6 +7178,7 @@
           },
           "400": {
             "description": "Bad Request",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -7146,6 +7289,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -7163,7 +7308,7 @@
             }
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           }
         }
       },
@@ -7214,6 +7359,7 @@
         "responses": {
           "201": {
             "description": "Created",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -7324,6 +7470,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -7340,6 +7488,7 @@
           },
           "400": {
             "description": "Bad Request",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -7450,6 +7599,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -7467,7 +7618,7 @@
             }
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           }
         }
       },
@@ -7502,6 +7653,7 @@
         "responses": {
           "201": {
             "description": "Created",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -7612,6 +7764,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -7635,6 +7789,7 @@
           },
           "400": {
             "description": "Bad Request",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -7745,6 +7900,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -7762,7 +7919,7 @@
             }
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           }
         }
       }
@@ -7791,6 +7948,7 @@
         "responses": {
           "201": {
             "description": "Created",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -7901,6 +8059,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -7915,7 +8075,7 @@
             }
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           }
         }
       }
@@ -7952,6 +8112,7 @@
         "responses": {
           "200": {
             "description": "Ok",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -8062,6 +8223,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -8094,6 +8257,7 @@
           },
           "400": {
             "description": "Bad Request",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -8204,6 +8368,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -8221,10 +8387,11 @@
             }
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           },
           "422": {
             "description": "Unprocessable Entity",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -8335,6 +8502,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -8412,6 +8581,7 @@
         "responses": {
           "201": {
             "description": "Created",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -8522,6 +8692,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -8538,6 +8710,7 @@
           },
           "400": {
             "description": "Bad Request",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -8648,6 +8821,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -8665,10 +8840,11 @@
             }
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           },
           "422": {
             "description": "Unprocessable Entity",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -8779,6 +8955,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -8834,6 +9012,7 @@
         "responses": {
           "200": {
             "description": "Ok",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -8944,6 +9123,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -8976,6 +9157,7 @@
           },
           "400": {
             "description": "Bad Request",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -9086,6 +9268,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -9103,7 +9287,7 @@
             }
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           }
         }
       }
@@ -9146,6 +9330,7 @@
         "responses": {
           "201": {
             "description": "Created",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -9256,6 +9441,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -9271,10 +9458,11 @@
             }
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           },
           "422": {
             "description": "Unprocessable Entity",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -9385,6 +9573,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -9453,6 +9643,7 @@
         ],
         "responses": {
           "200": {
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -9563,10 +9754,12 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "description": "Successful response"
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           }
         }
       }
@@ -9617,6 +9810,7 @@
         "responses": {
           "201": {
             "description": "Created",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -9727,6 +9921,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -9742,10 +9938,11 @@
             }
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           },
           "422": {
             "description": "Unprocessable Entity",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -9856,6 +10053,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -9930,6 +10129,7 @@
         "responses": {
           "201": {
             "description": "Created",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -10040,6 +10240,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -10056,6 +10258,7 @@
           },
           "400": {
             "description": "Bad Request",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -10166,6 +10369,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -10181,7 +10386,7 @@
             }
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           }
         }
       },
@@ -10240,6 +10445,7 @@
         "responses": {
           "200": {
             "description": "Ok",
+<<<<<<< HEAD
             "headers": {
   "Access-Control-Allow-Origin": {
     "schema": {
@@ -10350,6 +10556,8 @@
     }
   }
 },
+=======
+>>>>>>> a00a4024fe614965e669188cfeddf8192e2cf6b2
             "content": {
               "application/json": {
                 "schema": {
@@ -10391,7 +10599,7 @@
             }
           },
           "403": {
-            "$ref": "error403/403JWT.json"
+            "$ref": "403/403JWT.json"
           }
         }
       }
