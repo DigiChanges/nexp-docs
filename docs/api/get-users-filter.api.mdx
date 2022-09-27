@@ -1,0 +1,35 @@
+---
+id: get-users-filter
+sidebar_label: Get Users Filter
+hide_title: true
+hide_table_of_contents: true
+api: {"tags":["User"],"security":[{"bearerAuth":[]}],"parameters":[{"name":"Content-Type","in":"header","schema":{"type":"string"},"example":"application/json"},{"name":"pagination[limit]","in":"query","schema":{"type":"integer"},"example":"4"},{"name":"pagination[offset]","in":"query","schema":{"type":"integer"},"example":"0"},{"name":"filter[enable]","in":"query","schema":{"type":"boolean"},"example":"true"},{"name":"filter[email]","in":"query","schema":{"type":"string"},"example":"user"}],"responses":{"200":{"description":"Ok","content":{"application/json":{"schema":{"type":"object"},"example":{"data":[{"id":"20b88c02-b029-4dc6-b49c-61763a2e20cf","name":"Admin","slug":"admin","permissions":["all"],"enable":true,"createdAt":1663605213,"updatedAt":1663780687}],"metadata":{},"pagination":{"total":1,"offset":0,"limit":20,"perPage":1,"currentPage":1,"lastPage":1,"from":0,"to":1,"path":"http://localhost:8089/api","firstUrl":"http://localhost:8089/api/roles?pagination[limit]=20&pagination[offset]=0&filter[slug]=admin","lastUrl":"http://localhost:8089/api/roles?pagination[limit]=20&pagination[offset]=0&filter[slug]=admin","nextUrl":null,"prevUrl":null,"currentUrl":"http://localhost:8089/api/roles?pagination[limit]=20&pagination[offset]=0&filter[slug]=admin"}}}}},"403":{"description":"Forbidden","content":{"application/json":{"schema":{"type":"object"},"example":{"message":"Invalid token.","errorCode":"auth.presentation.exceptions.tokenExpired","errors":null,"metadata":{}}}}}},"description":"Get Users Filter","method":"get","path":"/api/users","servers":[{"url":"http://{{url}}"}],"securitySchemes":{"BearerAuth":{"type":"http","scheme":"bearer"}},"info":{"title":"Node Experience","description":"Open API Specification","version":"0.0.1","x-logo":{"url":"https://raw.githubusercontent.com/DigiChanges/node-experience/docs/RABC/readme/NExp.svg","backgroundColor":"#FFFFFF","altText":"NExp"},"contact":{"name":"Nathan M. Russo","url":"https://www.linkedin.com/in/nathan-m-russo","email":"nathan@digichanges.com"},"license":{"name":"MIT","url":"https://es.wikipedia.org/wiki/Licencia_MIT"}},"postman":{"name":"Get Users Filter","description":{"type":"text/plain"},"url":{"path":["api","users"],"host":["{{baseUrl}}"],"query":[{"disabled":false,"key":"pagination[limit]","value":""},{"disabled":false,"key":"pagination[offset]","value":""},{"disabled":false,"key":"filter[enable]","value":""},{"disabled":false,"key":"filter[email]","value":""}],"variable":[]},"header":[{"key":"Accept","value":"application/json"}],"method":"GET"}}
+sidebar_class_name: "get api-method"
+info_path: docs/api/node-experience
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem"
+import SchemaTabs from "@theme/SchemaTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import TabItem from "@theme/TabItem";
+
+## Get Users Filter
+
+
+
+Get Users Filter
+
+<details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Query Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"pagination[limit]","in":"query","schema":{"type":"integer"},"example":"4"}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"pagination[offset]","in":"query","schema":{"type":"integer"},"example":"0"}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"filter[enable]","in":"query","schema":{"type":"boolean"},"example":"true"}}></ParamsItem><ParamsItem className={"paramsItem"} param={{"name":"filter[email]","in":"query","schema":{"type":"string"},"example":"user"}}></ParamsItem></ul></div></details><details style={{"marginBottom":"1rem"}} data-collapsed={false} open={true}><summary style={{}}><strong>Header Parameters</strong></summary><div><ul><ParamsItem className={"paramsItem"} param={{"name":"Content-Type","in":"header","schema":{"type":"string"},"example":"application/json"}}></ParamsItem></ul></div></details><div><ApiTabs><TabItem label={"200"} value={"200"}><div>
+
+Ok
+
+</div><div><MimeTabs groupId={"mime-type"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs groupId={"schema-tabs"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>object</strong></div></li></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{}"} language={"json"}></ResponseSamples></TabItem><TabItem label={"Example"} value={"Example"}><ResponseSamples responseExample={"{\n  \"data\": [\n    {\n      \"id\": \"20b88c02-b029-4dc6-b49c-61763a2e20cf\",\n      \"name\": \"Admin\",\n      \"slug\": \"admin\",\n      \"permissions\": [\n        \"all\"\n      ],\n      \"enable\": true,\n      \"createdAt\": 1663605213,\n      \"updatedAt\": 1663780687\n    }\n  ],\n  \"metadata\": {},\n  \"pagination\": {\n    \"total\": 1,\n    \"offset\": 0,\n    \"limit\": 20,\n    \"perPage\": 1,\n    \"currentPage\": 1,\n    \"lastPage\": 1,\n    \"from\": 0,\n    \"to\": 1,\n    \"path\": \"http://localhost:8089/api\",\n    \"firstUrl\": \"http://localhost:8089/api/roles?pagination[limit]=20&pagination[offset]=0&filter[slug]=admin\",\n    \"lastUrl\": \"http://localhost:8089/api/roles?pagination[limit]=20&pagination[offset]=0&filter[slug]=admin\",\n    \"nextUrl\": null,\n    \"prevUrl\": null,\n    \"currentUrl\": \"http://localhost:8089/api/roles?pagination[limit]=20&pagination[offset]=0&filter[slug]=admin\"\n  }\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem><TabItem label={"403"} value={"403"}><div>
+
+Forbidden
+
+</div><div><MimeTabs groupId={"mime-type"}><TabItem label={"application/json"} value={"application/json"}><SchemaTabs groupId={"schema-tabs"}><TabItem label={"Schema"} value={"Schema"}><details style={{}} data-collapsed={false} open={true}><summary style={{"textAlign":"left"}}><strong>Schema</strong></summary><div style={{"textAlign":"left","marginLeft":"1rem"}}></div><ul style={{"marginLeft":"1rem"}}><li><div><strong>object</strong></div></li></ul></details></TabItem><TabItem label={"Example (from schema)"} value={"Example (from schema)"}><ResponseSamples responseExample={"{}"} language={"json"}></ResponseSamples></TabItem><TabItem label={"Example"} value={"Example"}><ResponseSamples responseExample={"{\n  \"message\": \"Invalid token.\",\n  \"errorCode\": \"auth.presentation.exceptions.tokenExpired\",\n  \"errors\": null,\n  \"metadata\": {}\n}"} language={"json"}></ResponseSamples></TabItem></SchemaTabs></TabItem></MimeTabs></div></TabItem></ApiTabs></div>
+      
