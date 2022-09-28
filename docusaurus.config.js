@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'NExp Docs',
   tagline: 'The Node Experience',
-  url: 'https://digichanges.com',
+  url: 'https://nexp.digichanges.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',

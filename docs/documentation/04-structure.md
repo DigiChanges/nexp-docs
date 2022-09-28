@@ -23,7 +23,7 @@ To begin with, you must understand that the project is divided by domains.
 
 * `Handler` - The handler belongs to the domain layer and is almost 100% assembled by libraries that handle inputs and responses. It captures the information from the requests, drives them to a concrete command, and delivers the response.
 
-* `Transformer` - The transformer is responsible for the data outputs, depending on the representation requirements. <averiguarDto>
+* `Transformer` - The transformer is responsible for the data outputs, depending on the representation requirements.
 
 * `Entity` - They represent domain objects. They are made up of fields and properties and the domain logic that belongs to that entity.
 Within entities is the interface or contract of the entity.
@@ -34,8 +34,4 @@ Within entities is the interface or contract of the entity.
 
 * `Commands` - Commands allows to configure and text commands to be entered via a computer terminal, and they are then interpreted as a program is being executed.
 
-* 1Middlewares1 - They provide services like managing authorize policy, throttle request, multer for uploading files, and others.
-
-* ./config - <repetida>
-
-* src/config - <repetida>
+* `Middlewares` - They provide services like managing authorize policy, throttle request, multer for uploading files, and others.
