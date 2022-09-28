@@ -9,7 +9,7 @@ const config = {
   title: 'NExp Docs',
   tagline: 'The Node Experience',
   url: 'https://digichanges.com',
-  baseUrl: '/nexp-docs/',
+  baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
@@ -130,13 +130,13 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} DigiChanges, Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} <a href= "https://digichanges.com">DigiChanges</a>, Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
-        algolia: {
+      algolia: {
           appId: '5J7AQWV2BK', // The application ID provided by Algolia
           apiKey: 'b9d169f71bf43350ca45b3673ea3b2ea', // Public API key: it is safe to commit it
           indexName: 'nexp',
@@ -167,6 +167,6 @@ const config = {
   ],
 
   themes: ["docusaurus-theme-openapi-docs"],
-};
+}
 
 module.exports = config;
