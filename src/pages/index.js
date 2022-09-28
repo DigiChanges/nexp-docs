@@ -10,7 +10,8 @@ function Home() {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description="Documentation/Tutorial/NExp">
+      description="Documentation/Tutorial/NExp"
+    >
       <HomePageHeader />
       <main>
         <HomePageFeatures />
