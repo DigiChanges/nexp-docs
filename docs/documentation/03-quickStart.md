@@ -169,21 +169,17 @@ To take an example we are going to use Postgres.
    2. `DB_TYPE_DEFAULT=Mongoose -> DB_TYPE_DEFAULT=MikroORM`
    3. `DB_TYPE=postgresql`
 
-
 2. Finally, we have a command with Makefile to lift the corresponding containers.
    1. `make dev_sql`
    2. The command with docker compose would be:
             
     `STAGE=dev docker-compose -f docker-compose.yml -f docker-compose.sql.yml up --build -d`
-       
-This above command replaces the mongo container with the postgres container.
 
-```bash
-docker-compose exec db psql -d experience -U experience -W
-get extension "uuid-ossp";
-```
+## TypeORM and MikroORM       
+
+In the case of not using Mongoose you have to synchronize the database tables. With this command you can synchronize them regardless if you are using MikroORM or TypeORM.
 
 ```bash
 docker-compose exec node bash
-yarn run sync-db
+yarn sync-db
 ```

@@ -137,14 +137,19 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
-      algolia: {
-          appId: '5J7AQWV2BK', // The application ID provided by Algolia
-          apiKey: 'b9d169f71bf43350ca45b3673ea3b2ea', // Public API key: it is safe to commit it
-          indexName: 'nexp',
-          contextualSearch: true, // Optional: see doc section below
-          searchParameters: {}, // Optional: Algolia search parameters
-          searchPagePath: 'search' // Optional: path for search page that enabled by default (`false` to disable it)
-    },
+      typesense: {
+        typesenseCollectionName: 'doc', // Replace with your own doc site's name. Should match the collection name in the scraper settings.
+        typesenseServerConfig: {
+          nodes: [
+            {
+              host: 'search.digichanges.com',
+              port: 443,
+              protocol: 'https',
+            },
+          ],
+          apiKey: 'Hu52dwsas2AdxdE',
+        }
+      }
     }),
 
   plugins: [
@@ -167,7 +172,7 @@ const config = {
     ]
   ],
 
-  themes: ["docusaurus-theme-openapi-docs"],
+  themes: ["docusaurus-theme-openapi-docs", "docusaurus-theme-search-typesense"],
 }
 
 module.exports = config;
