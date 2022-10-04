@@ -38,6 +38,10 @@ const sidebars = {
     },
     {
       type: "doc",
+      id: "documentation/docker",
+    },
+    {
+      type: "doc",
       id: "documentation/comingSoon",
     },
   ],

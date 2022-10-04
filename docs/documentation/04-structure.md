@@ -1,7 +1,5 @@
 # Structure
 
-## Work in Progress
-
 ### Started
 
 To begin with, you must understand that the project is divided by domains.

@@ -69,6 +69,8 @@ Common structures found within this project are:
 
 ## Docs
 
-### Postman Documentation
+### API Documentation
 
-[API Documentation](https://documenter.getpostman.com/view/10426172/Tz5je15Z)
+[POSTMAN Documentation](https://documenter.getpostman.com/view/10426172/Tz5je15Z)
+
+[API Documentation](/docs/api/node-experience)
