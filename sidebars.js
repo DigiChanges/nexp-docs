@@ -30,7 +30,7 @@ const sidebars = {
     },
     {
       type: "doc",
-      id: "documentation/quickStart",
+      id: "documentation/quick-start",
     },
     {
       type: "doc",
@@ -42,7 +42,39 @@ const sidebars = {
     },
     {
       type: "doc",
-      id: "documentation/comingSoon",
+      id: "documentation/package-json",
+    },
+    {
+      type: "doc",
+      id: "documentation/makefile",
+    },
+    {
+      type: "doc",
+      id: "documentation/commands",
+    },
+    {
+      type: "doc",
+      id: "documentation/debugger",
+    },
+    {
+      type: "doc",
+      id: "documentation/dotenv",
+    },
+    {
+      type: "doc",
+      id: "documentation/request-id",
+    },
+    {
+      type: "doc",
+      id: "documentation/dependency-injection",
+    },
+    {
+      type: "doc",
+      id: "documentation/exceptions",
+    },
+    {
+      type: "doc",
+      id: "documentation/coming-soon",
     },
   ],
   api: [
@@ -53,8 +85,8 @@ const sidebars = {
         type: "generated-index",
         title: "NExp API",
         description:
-          "This is a sample server Petstore server. You can find out more about Swagger at http://swagger.io or on irc.freenode.net, #swagger. For this sample, you can use the api key special-key to test the authorization filters.",
-        slug: "/category/petstore-api",
+          "Hello! NExp (Node Experience) is a boilerplate for Node, which makes use of a Hexagonal architecture, in addition to all the power of TypeScript that combined allow a perfect cohesion thus achieving a clean and at the same time very powerful implementation.",
+        slug: "/api/main",
       },
       items: require('./docs/api/sidebar'),
     },

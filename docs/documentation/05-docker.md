@@ -30,11 +30,11 @@ This layer is responsible for preparing the last details for the production imag
 
 Inside the Docker Compose we have 5 containers to be able to lift.
 
-## node
+### node
 
 The first container is from node, this service compiles the Dockerfile from the previous point, it also specifies a target that must be passed through an environment variable in order to specify the environment. The valid environments depend on the layers of the Dockerfile, in the case of the Dockerfile from the previous point, the ones that could be used are the `dev` and `prod`. In 100% of the cases you will be using `dev` when working locally.
 
-## db
+### db
 
 The second container is the one for the database, by default the mongodb container is used since by default it is configured to use Mongoose as ODM.
 
@@ -46,14 +46,14 @@ STAGE=dev docker-compose -f docker-compose.yml -f docker-compose.sql.yml up --bu
 
 When we use the SQL version, we will be using postgres.
 
-## mail
+### mail
 
 The third container is a service that is used to be able to send and receive emails without the need to configure or use an external service. It facilitates the testing of sending emails.
 
-## minio
+### minio
 
 The fourth container is a file saving service and replaces the classic local file saving. MinIO can be used in such a way that we can use S3 locally, then with the same logic we can manipulate S3 when it goes into production.
 
-## redis
+### redis
 
 The fifth container is an in-memory database service called redis.
