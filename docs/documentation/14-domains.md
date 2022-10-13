@@ -1,5 +1,9 @@
 # Domains
 
-Nos encontramos en la etapa en donde es importante documentar algunas funcionalidades que se encuentran implicitas en NExp.
+We are at the stage where it is important to document some features that are implicit in NExp.
+
+## Auth
+
+## File
 
 

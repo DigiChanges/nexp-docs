@@ -24,7 +24,7 @@ Therefore, it is possible to debugger with any editor.
 
 5. This message tells us that it is connected correctly. So now we can start generating the breakpoints in the editor.
 
-6. ![03.png](images/debugger/03.png)
+![03.png](images/debugger/03.png)
 
 ### Note
 
