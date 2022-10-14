@@ -142,7 +142,7 @@ async function createConfig()
           darkTheme: darkCodeTheme,
         },
         typesense: {
-          typesenseCollectionName: 'doc', // Replace with your own doc site's name. Should match the collection name in the scraper settings.
+          typesenseCollectionName: 'nexp.docs', // Replace with your own doc site's name. Should match the collection name in the scraper settings.
           typesenseServerConfig: {
             nodes: [
               {
@@ -151,7 +151,7 @@ async function createConfig()
                 protocol: 'https',
               },
             ],
-            apiKey: 'Hu52dwsas2AdxdE',
+            apiKey: 'OYw7ElBA5VIncI8iRpo33DJkeRCRR3Lv',
           }
         }
       }),
