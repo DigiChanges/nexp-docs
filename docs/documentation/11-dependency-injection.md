@@ -32,3 +32,7 @@ container.register<IEncryption>(FACTORIES.BcryptEncryptionStrategy, { useClass: 
 container.register<IEncryption>(FACTORIES.Md5EncryptionStrategy, { useClass: Md5EncryptionStrategy }, { lifecycle: Lifecycle.Singleton });
 
 ```
+
+> As dependencies, we have [inversify](https://github.com/inversify/InversifyJS), we used this library before to
+   the whole project, but now it's in a phase-out process. It is a necessary dependency to use `express`. But
+   over time we will end up eliminating it, and we will be using `express` as we do with `koa`.
