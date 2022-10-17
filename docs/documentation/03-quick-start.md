@@ -39,7 +39,7 @@ First, install nexp-cli using [npm](https://www.npmjs.com/) (we assume you have 
 
 ![6.png](images/quick-start/6.png)
 
-#### Copy .env.dev to .env and install dependencies with yarn or npm.
+#### Copy .env.dev to .env and install dependencies with pnpm or npm.
 
 ![7.png](images/quick-start/7.png)
 
@@ -77,16 +77,16 @@ yo generator-nexp-cli
 ```bash
 #!/usr/bin/env bash
 
-yarn command addUserRole --role Admin --email user@node.com --firstName node --lastName node --password 12345678 --documentType DNI --documentNumber 12345678 --gender male --phone 541112345678 --country AR --address av.1234 --isSuperAdmin false --birthday 04/07/1990
-yarn command addUserRole --role SuperAdmin --email superadmin@node.com --firstName super --lastName admin --documentType DNI --documentNumber 12345679 --gender male --phone 541112345678 --country AR --address av.1234 --password 12345678 --birthday 05/07/1990 --isSuperAdmin true
-yarn command syncRolesPermission
-yarn command createBucket --name experience --region us-east-1
+pnpm command addUserRole --role Admin --email user@node.com --firstName node --lastName node --password 12345678 --documentType DNI --documentNumber 12345678 --gender male --phone 541112345678 --country AR --address av.1234 --isSuperAdmin false --birthday 04/07/1990
+pnpm command addUserRole --role SuperAdmin --email superadmin@node.com --firstName super --lastName admin --documentType DNI --documentNumber 12345679 --gender male --phone 541112345678 --country AR --address av.1234 --password 12345678 --birthday 05/07/1990 --isSuperAdmin true
+pnpm command syncRolesPermission
+pnpm command createBucket --name experience --region us-east-1
 ```
 
 ## Create Push Notifications Keys
 
 ```bash
-yarn docker:command createVapID
+pnpm docker:command createVapID
 ```
 
 ## Minio Browser
@@ -99,19 +99,19 @@ yarn docker:command createVapID
 To run the tests, we need to install the packages and transpile the code, we also need the `.env` environment variable to exist.
 
 ```bash
-yarn test
+pnpm test
 ```
 
 ## Test different folder
 
 ```bash
-yarn test src/[Module]/Tests
+pnpm test src/[Module]/Tests
 ```
 
 Example Unique Test
 
 ```bash
-yarn test src/Item/Tests
+pnpm test src/Item/Tests
 ```
 
 ## How to use TypeORM:
@@ -182,5 +182,5 @@ In the case of not using Mongoose you have to synchronize the database tables. W
 
 ```bash
 docker-compose exec node bash
-yarn sync-db
+pnpm sync-db
 ```

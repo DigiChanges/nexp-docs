@@ -26,7 +26,7 @@ async function createConfig()
 
     // Even if you don't use internalization, you can use this field to set useful
     // metadata like html lang. For example, if your site is Chinese, you may want
-    // to replace "en" with "zh-Hans".
+    // to replace 'en' with 'zh-Hans'.
     i18n: {
       defaultLocale: 'en',
       locales: ['en'],
@@ -39,8 +39,8 @@ async function createConfig()
         ({
           docs: {
             sidebarPath: require.resolve('./sidebars.js'),
-            docLayoutComponent: "@theme/DocPage",
-            docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi-docs
+            docLayoutComponent: '@theme/DocPage',
+            docItemComponent: '@theme/ApiItem', // Derived from docusaurus-theme-openapi-docs
             remarkPlugins: [mdxMermaid.default]
           },
           blog: {
@@ -65,12 +65,12 @@ async function createConfig()
           items: [
             {
               type: 'doc',
-              docId: 'documentation/coverpage',
+              docId: 'documentation/home',
               position: 'left',
               label: 'Documentation',
             },
             {
-              to: "/docs/api/main",
+              to: '/docs/api/main',
               position: 'left',
               label: 'API',
             },
@@ -100,7 +100,7 @@ async function createConfig()
               items: [
                 {
                   label: 'Knowledge Base',
-                  to: '/docs/documentation/coverpage',
+                  to: '/docs/documentation/home',
                 },
               ],
             },
@@ -135,7 +135,7 @@ async function createConfig()
               ],
             },
           ],
-          copyright: `Copyright © ${new Date().getFullYear()} <a href= "https://digichanges.com">DigiChanges</a>, Built with Docusaurus.`,
+          copyright: `Copyright © ${new Date().getFullYear()} <a href= 'https://digichanges.com'>DigiChanges</a>, Built with Docusaurus.`,
         },
         prism: {
           theme: lightCodeTheme,
@@ -160,15 +160,15 @@ async function createConfig()
       [
         'docusaurus-plugin-openapi-docs',
         {
-          id: "apiDocs",
-          docsPluginId: "classic",
+          id: 'apiDocs',
+          docsPluginId: 'classic',
           config: {
             nexp: { // Note: nexp key is treated as the <id> and can be used to specify an API doc instance when using CLI commands
-              specPath: "api/nexp.json", // Path to designated spec file
-              outputDir: "docs/api", // Output directory for generated .mdx docs
+              specPath: 'api/nexp.json', // Path to designated spec file
+              outputDir: 'docs/api', // Output directory for generated .mdx docs
               sidebarOptions: {
-                groupPathsBy: "tag",
-                categoryLinkSource: "tag",
+                groupPathsBy: 'tag',
+                categoryLinkSource: 'tag',
               },
             },
           }
@@ -176,7 +176,7 @@ async function createConfig()
       ]
     ],
 
-    themes: ["docusaurus-theme-openapi-docs", "docusaurus-theme-search-typesense"],
+    themes: ['docusaurus-theme-openapi-docs', 'docusaurus-theme-search-typesense'],
   }
 }
 

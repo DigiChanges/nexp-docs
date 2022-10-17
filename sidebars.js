@@ -22,7 +22,7 @@ const sidebars = {
     },
     {
       type: "doc",
-      id: "documentation/coverpage",
+      id: "documentation/home",
     },
     {
       type: "doc",
@@ -39,6 +39,10 @@ const sidebars = {
     {
       type: "doc",
       id: "documentation/docker",
+    },
+    {
+      type: "doc",
+      id: "documentation/test",
     },
     {
       type: "doc",
@@ -62,15 +66,19 @@ const sidebars = {
     },
     {
       type: "doc",
-      id: "documentation/request-id",
-    },
-    {
-      type: "doc",
       id: "documentation/dependency-injection",
     },
     {
       type: "doc",
+      id: "documentation/request-id",
+    },
+    {
+      type: "doc",
       id: "documentation/exceptions",
+    },
+    {
+      type: "doc",
+      id: "documentation/domains",
     },
     {
       type: "doc",
@@ -91,19 +99,6 @@ const sidebars = {
       items: require('./docs/api/sidebar'),
     },
   ],
-
-  // But you can create a sidebar manually
-  /*
-  tutorialSidebar: [
-    'intro',
-    'hello',
-    {
-      type: 'category',
-      label: 'Tutorial',
-      items: ['tutorial-basics/create-a-document'],
-    },
-  ],
-   */
 };
 
 module.exports = sidebars;
