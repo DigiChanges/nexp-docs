@@ -138,14 +138,14 @@
                     {
                       "property": "email",
                       "constraints": {
-                          "isEmail": "email must be an email"
+                        "isEmail": "email must be an email"
                       }
                     },
                     {
                       "property": "password",
                       "constraints": {
-                          "isLength": "password must be longer than or equal to undefined and shorter than or equal to undefined characters",
-                          "isString": "password must be a string"
+                        "isLength": "password must be longer than or equal to undefined and shorter than or equal to undefined characters",
+                        "isString": "password must be a string"
                       }
                     }
                   ],
@@ -227,12 +227,12 @@
                 },
                 "example": {
 
-                    "message": "The email property is already in use.",
-                    "errorCode": "app.domain.exceptions.uniqueAttribute",
-                    "errors": null,
-                    "metadata": {
-                      "replace": {
-                        "name": "email"
+                  "message": "The email property is already in use.",
+                  "errorCode": "app.domain.exceptions.uniqueAttribute",
+                  "errors": null,
+                  "metadata": {
+                    "replace": {
+                      "name": "email"
                     }
                   }
                 }
@@ -354,38 +354,38 @@
                   "type": "object"
                 },
                 "example": {
-                    "message": "Failed Request.",
-                    "errorCode": null,
-                    "errors": [
-                      {
-                        "property": "email",
-                        "constraints": {
-                          "isEmail": "email must be an email"
-                        }
-                      },
-                      {
-                        "property": "password",
-                        "constraints": {
-                          "isString": "password must be a string",
-                          "isLength": "password must be longer than or equal to undefined and shorter than or equal to undefined characters"
-                        }
-                      },
-                      {
-                        "property": "passwordConfirmation",
-                        "constraints": {
-                          "isString": "passwordConfirmation must be a string",
-                          "isLength": "passwordConfirmation must be longer than or equal to undefined and shorter than or equal to undefined characters"
-                        }
+                  "message": "Failed Request.",
+                  "errorCode": null,
+                  "errors": [
+                    {
+                      "property": "email",
+                      "constraints": {
+                        "isEmail": "email must be an email"
                       }
-                    ],
-                    "metadata": {}
-                  }
+                    },
+                    {
+                      "property": "password",
+                      "constraints": {
+                        "isString": "password must be a string",
+                        "isLength": "password must be longer than or equal to undefined and shorter than or equal to undefined characters"
+                      }
+                    },
+                    {
+                      "property": "passwordConfirmation",
+                      "constraints": {
+                        "isString": "passwordConfirmation must be a string",
+                        "isLength": "passwordConfirmation must be longer than or equal to undefined and shorter than or equal to undefined characters"
+                      }
+                    }
+                  ],
+                  "metadata": {}
+                }
               }
             }
           }
         }
-        }
-      },
+      }
+    },
     "/api/auth/refresh-token": {
       "post": {
         "tags": [
@@ -960,6 +960,14 @@
               "type": "boolean"
             },
             "example": "true"
+          },
+          {
+            "name": "optimize",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": "false"
           }
         ],
         "responses": {
@@ -972,17 +980,26 @@
                 },
                 "example": {
                   "data": {
-                    "id": "0085553e-9f7d-4109-82b8-73a6122073ba",
-                    "name": "0085553e-9f7d-4109-82b8-73a6122073ba",
-                    "originalName": "photo.png",
-                    "extension": "png",
-                    "path": "/",
-                    "mimeType": "image/png",
-                    "size": -507,
-                    "version": 1,
-                    "isPublic": true,
-                    "createdAt": 1663774494,
-                    "updatedAt": 1663774494
+                    "id": "4deef3de-bf6c-425d-b709-f94db152f52f",
+                    "currentVersion": 1,
+                    "versions": [
+                      {
+                        "id": "d9aa1307-a562-4bf8-adf5-b1e57c86260d",
+                        "name": "20505754.jpg",
+                        "originalName": "20505754.jpg",
+                        "extension": "jpg",
+                        "path": "/4deef3de-bf6c-425d-b709-f94db152f52f/1/",
+                        "mimeType": "image/jpeg",
+                        "size": 316607,
+                        "version": 1,
+                        "isPublic": false,
+                        "isOptimized": false,
+                        "createdAt": 1665767506,
+                        "updatedAt": 1665767506
+                      }
+                    ],
+                    "createdAt": 1665767506,
+                    "updatedAt": 1665767506
                   }
                 }
               }
@@ -1029,7 +1046,8 @@
               "schema": {
                 "type": "object",
                 "example": {
-                  "filename": "01.-_dar-kunor.mp3",
+                  "file": "FILE_ID",
+                  "version": null,
                   "expiry": 3000
                 }
               }
@@ -1049,14 +1067,6 @@
               "type": "string"
             },
             "example": "application/json"
-          },
-          {
-            "name": "isPublic",
-            "in": "query",
-            "schema": {
-              "type": "boolean"
-            },
-            "example": "false"
           }
         ],
         "responses": {
@@ -1149,6 +1159,14 @@
               "type": "boolean"
             },
             "example": "false"
+          },
+          {
+            "name": "optimize",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": "false"
           }
         ],
         "responses": {
@@ -1161,17 +1179,26 @@
                 },
                 "example": {
                   "data": {
-                    "id": "33f6dcad-b685-482a-87b6-9cfe1277e60d",
-                    "name": "image.png",
-                    "originalName": "image.png",
-                    "extension": "png",
-                    "path": "/",
-                    "mimeType": "image/png",
-                    "size": 3515330,
-                    "version": 1,
-                    "isPublic": false,
-                    "createdAt": 1663774728,
-                    "updatedAt": 1663774728
+                    "id": "504089fe-8224-4ae6-97f8-024c82fdc799",
+                    "currentVersion": 1,
+                    "versions": [
+                      {
+                        "id": "e36d862f-6b6a-4ef5-8532-ef57ab111c65",
+                        "name": "20505754.jpg",
+                        "originalName": "20505754.jpg",
+                        "extension": "jpg",
+                        "path": "/504089fe-8224-4ae6-97f8-024c82fdc799/1/",
+                        "mimeType": "image/jpeg",
+                        "size": 316607,
+                        "version": 1,
+                        "isPublic": false,
+                        "isOptimized": false,
+                        "createdAt": 1665766884,
+                        "updatedAt": 1665766884
+                      }
+                    ],
+                    "createdAt": 1665766884,
+                    "updatedAt": 1665766970
                   }
                 }
               }
@@ -1254,6 +1281,7 @@
                       "size": -507,
                       "version": 1,
                       "isPublic": true,
+                      "isOptimize": false,
                       "createdAt": 1663774494,
                       "updatedAt": 1663774494
                     },
@@ -1267,6 +1295,7 @@
                       "size": 3515330,
                       "version": 1,
                       "isPublic": false,
+                      "isOptimize": false,
                       "createdAt": 1663774786,
                       "updatedAt": 1663774786
                     },
@@ -1280,6 +1309,7 @@
                       "size": 3515330,
                       "version": 1,
                       "isPublic": false,
+                      "isOptimize": false,
                       "createdAt": 1663774728,
                       "updatedAt": 1663774728
                     }
@@ -1330,6 +1360,14 @@
               "type": "string"
             },
             "required": true
+          },
+          {
+            "name": "version",
+            "in": "query",
+            "schema": {
+              "type": "number"
+            },
+            "example": 1
           }
         ],
         "responses": {
@@ -1409,6 +1447,30 @@
               "type": "string"
             },
             "required": true
+          },
+          {
+            "name": "hasOriginalName",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": "false"
+          },
+          {
+            "name": "isPublic",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": "true"
+          },
+          {
+            "name": "optimize",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": "false"
           }
         ],
         "responses": {
@@ -1421,17 +1483,40 @@
                 },
                 "example": {
                   "data": {
-                    "id": "ce8f6d4e-153a-4804-a3a5-44ffbb93166e",
-                    "name": "ce8f6d4e-153a-4804-a3a5-44ffbb93166e",
-                    "originalName": "image.png",
-                    "extension": "png",
-                    "path": "/",
-                    "mimeType": "image/png",
-                    "size": 3515330,
-                    "version": 1,
-                    "isPublic": false,
-                    "createdAt": 1663774786,
-                    "updatedAt": 1663774786
+                    "id": "504089fe-8224-4ae6-97f8-024c82fdc799",
+                    "currentVersion": 2,
+                    "versions": [
+                      {
+                        "id": "e36d862f-6b6a-4ef5-8532-ef57ab111c65",
+                        "name": "20505754.jpg",
+                        "originalName": "20505754.jpg",
+                        "extension": "jpg",
+                        "path": "/504089fe-8224-4ae6-97f8-024c82fdc799/1/",
+                        "mimeType": "image/jpeg",
+                        "size": 316607,
+                        "version": 1,
+                        "isPublic": false,
+                        "isOptimized": false,
+                        "createdAt": 1665766884,
+                        "updatedAt": 1665766884
+                      },
+                      {
+                        "id": "e12d765d-bb2d-4ea5-9789-e39340097ac8",
+                        "name": "20505754.jpg",
+                        "originalName": "20505754.jpg",
+                        "extension": "jpg",
+                        "path": "/504089fe-8224-4ae6-97f8-024c82fdc799/2/",
+                        "mimeType": "image/jpeg",
+                        "size": 316607,
+                        "version": 2,
+                        "isPublic": false,
+                        "isOptimized": false,
+                        "createdAt": 1665766970,
+                        "updatedAt": 1665766970
+                      }
+                    ],
+                    "createdAt": 1665766884,
+                    "updatedAt": 1665766970
                   }
                 }
               }
@@ -1472,17 +1557,132 @@
                 },
                 "example": {
                   "data": {
-                    "id": "ce8f6d4e-153a-4804-a3a5-44ffbb93166e",
-                    "name": "ce8f6d4e-153a-4804-a3a5-44ffbb93166e",
-                    "originalName": "image.png",
-                    "extension": null,
-                    "path": "/",
-                    "mimeType": "dKGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYII=",
-                    "size": -511,
-                    "version": 1,
-                    "isPublic": false,
-                    "createdAt": 1663774786,
-                    "updatedAt": 1663775243
+                    "id": "504089fe-8224-4ae6-97f8-024c82fdc799",
+                    "currentVersion": 2,
+                    "versions": [
+                      {
+                        "id": "e36d862f-6b6a-4ef5-8532-ef57ab111c65",
+                        "name": "20505754.jpg",
+                        "originalName": "20505754.jpg",
+                        "extension": "jpg",
+                        "path": "/504089fe-8224-4ae6-97f8-024c82fdc799/1/",
+                        "mimeType": "image/jpeg",
+                        "size": 316607,
+                        "version": 1,
+                        "isPublic": false,
+                        "isOptimized": false,
+                        "createdAt": 1665766884,
+                        "updatedAt": 1665766884
+                      },
+                      {
+                        "id": "e12d765d-bb2d-4ea5-9789-e39340097ac8",
+                        "name": "20505754.jpg",
+                        "originalName": "20505754.jpg",
+                        "extension": "jpg",
+                        "path": "/504089fe-8224-4ae6-97f8-024c82fdc799/2/",
+                        "mimeType": "image/jpeg",
+                        "size": 316607,
+                        "version": 2,
+                        "isPublic": true,
+                        "isOptimized": false,
+                        "createdAt": 1665766970,
+                        "updatedAt": 1665766970
+                      }
+                    ],
+                    "createdAt": 1665766884,
+                    "updatedAt": 1665766970
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "$ref": "403/403JWT.json"
+          }
+        }
+      }
+    },
+    "/api/files/optimize/{FILE_ID}": {
+      "put": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Optimize last version",
+        "security": [
+          {
+            "bearerAuth": [ ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            },
+            "example": "application/json"
+          },
+          {
+            "name": "FILE_ID",
+            "in": "path",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "name": "hasOriginalName",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": "false"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object"
+                },
+                "example": {
+                  "data": {
+                    "id": "504089fe-8224-4ae6-97f8-024c82fdc799",
+                    "currentVersion": 2,
+                    "versions": [
+                      {
+                        "id": "e36d862f-6b6a-4ef5-8532-ef57ab111c65",
+                        "name": "20505754.jpg",
+                        "originalName": "20505754.jpg",
+                        "extension": "jpg",
+                        "path": "/504089fe-8224-4ae6-97f8-024c82fdc799/1/",
+                        "mimeType": "image/jpeg",
+                        "size": 316607,
+                        "version": 1,
+                        "isPublic": false,
+                        "isOptimized": false,
+                        "createdAt": 1665766884,
+                        "updatedAt": 1665766884
+                      },
+                      {
+                        "id": "e12d765d-bb2d-4ea5-9789-e39340097ac8",
+                        "name": "20505754.webp",
+                        "originalName": "20505754.webp",
+                        "extension": "webp",
+                        "path": "/504089fe-8224-4ae6-97f8-024c82fdc799/2/",
+                        "mimeType": "image/webp",
+                        "size": 316607,
+                        "version": 2,
+                        "isPublic": false,
+                        "isOptimized": true,
+                        "createdAt": 1665766970,
+                        "updatedAt": 1665766970
+                      }
+                    ],
+                    "createdAt": 1665766884,
+                    "updatedAt": 1665766970
                   }
                 }
               }
@@ -1525,17 +1725,40 @@
                 },
                 "example": {
                   "data": {
-                    "id": "ce8f6d4e-153a-4804-a3a5-44ffbb93166e",
-                    "name": "ce8f6d4e-153a-4804-a3a5-44ffbb93166e",
-                    "originalName": "image.png",
-                    "extension": "png",
-                    "path": "/",
-                    "mimeType": "image/png",
-                    "size": 3515330,
-                    "version": 1,
-                    "isPublic": false,
-                    "createdAt": 1663774786,
-                    "updatedAt": 1663774786
+                    "id": "504089fe-8224-4ae6-97f8-024c82fdc799",
+                    "currentVersion": 2,
+                    "versions": [
+                      {
+                        "id": "e36d862f-6b6a-4ef5-8532-ef57ab111c65",
+                        "name": "20505754.jpg",
+                        "originalName": "20505754.jpg",
+                        "extension": "jpg",
+                        "path": "/504089fe-8224-4ae6-97f8-024c82fdc799/1/",
+                        "mimeType": "image/jpeg",
+                        "size": 316607,
+                        "version": 1,
+                        "isPublic": false,
+                        "isOptimized": false,
+                        "createdAt": 1665766884,
+                        "updatedAt": 1665766884
+                      },
+                      {
+                        "id": "e12d765d-bb2d-4ea5-9789-e39340097ac8",
+                        "name": "20505754.jpg",
+                        "originalName": "20505754.jpg",
+                        "extension": "jpg",
+                        "path": "/504089fe-8224-4ae6-97f8-024c82fdc799/2/",
+                        "mimeType": "image/jpeg",
+                        "size": 316607,
+                        "version": 2,
+                        "isPublic": true,
+                        "isOptimized": false,
+                        "createdAt": 1665766970,
+                        "updatedAt": 1665766970
+                      }
+                    ],
+                    "createdAt": 1665766884,
+                    "updatedAt": 1665766970
                   }
                 }
               }
@@ -1611,6 +1834,30 @@
               "type": "string"
             },
             "required": true
+          },
+          {
+            "name": "hasOriginalName",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": "false"
+          },
+          {
+            "name": "isPublic",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": "true"
+          },
+          {
+            "name": "optimize",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            },
+            "example": "false"
           }
         ],
         "responses": {
@@ -1623,17 +1870,40 @@
                 },
                 "example": {
                   "data": {
-                    "id": "ce8f6d4e-153a-4804-a3a5-44ffbb93166e",
-                    "name": "ce8f6d4e-153a-4804-a3a5-44ffbb93166e",
-                    "originalName": "image.png",
-                    "extension": "png",
-                    "path": "/",
-                    "mimeType": "image/png",
-                    "size": -507,
-                    "version": 1,
-                    "isPublic": false,
-                    "createdAt": 1663774786,
-                    "updatedAt": 1663775208
+                    "id": "504089fe-8224-4ae6-97f8-024c82fdc799",
+                    "currentVersion": 2,
+                    "versions": [
+                      {
+                        "id": "e36d862f-6b6a-4ef5-8532-ef57ab111c65",
+                        "name": "20505754.jpg",
+                        "originalName": "20505754.jpg",
+                        "extension": "jpg",
+                        "path": "/504089fe-8224-4ae6-97f8-024c82fdc799/1/",
+                        "mimeType": "image/jpeg",
+                        "size": 316607,
+                        "version": 1,
+                        "isPublic": false,
+                        "isOptimized": false,
+                        "createdAt": 1665766884,
+                        "updatedAt": 1665766884
+                      },
+                      {
+                        "id": "e12d765d-bb2d-4ea5-9789-e39340097ac8",
+                        "name": "20505754.jpg",
+                        "originalName": "20505754.jpg",
+                        "extension": "jpg",
+                        "path": "/504089fe-8224-4ae6-97f8-024c82fdc799/2/",
+                        "mimeType": "image/jpeg",
+                        "size": 316607,
+                        "version": 2,
+                        "isPublic": false,
+                        "isOptimized": false,
+                        "createdAt": 1665766970,
+                        "updatedAt": 1665766970
+                      }
+                    ],
+                    "createdAt": 1665766884,
+                    "updatedAt": 1665766970
                   }
                 }
               }
