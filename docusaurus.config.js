@@ -146,12 +146,12 @@ async function createConfig()
           typesenseServerConfig: {
             nodes: [
               {
-                host: 'search.digichanges.com',
+                host: 'https://typesense-production-1d39.up.railway.app',
                 port: 443,
                 protocol: 'https',
               },
             ],
-            apiKey: 'OYw7ElBA5VIncI8iRpo33DJkeRCRR3Lv',
+            apiKey: '_celc8lyc5ez1xiymjk2ft$l-ar1q0v4',
           }
         }
       }),
