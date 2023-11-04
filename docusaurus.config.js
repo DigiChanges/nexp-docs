@@ -1,13 +1,12 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require('prism-react-renderer/themes/github');
-const darkCodeTheme = require('prism-react-renderer/themes/dracula');
+const prism = require('prism-react-renderer');
+const lightCodeTheme = prism.themes.github;
+const darkCodeTheme = prism.themes.dracula;
 
 async function createConfig()
 {
-  const mdxMermaid = await import('mdx-mermaid');
-
   /** @type {import('@docusaurus/types').Config} */
   return {
     title: 'NExp Docs',
@@ -19,17 +18,16 @@ async function createConfig()
     favicon: 'img/favicon.ico',
     trailingSlash: false,
 
-    // GitHub pages deployment config.
-    // If you aren't using GitHub pages, you don't need these.
-    organizationName: 'DigiChanges', // Usually your GitHub org/user name.
-    projectName: 'nexp-docs', // Usually your repo name.
+    organizationName: 'DigiChanges',
+    projectName: 'nexp-docs',
+    staticDirectories: ['public', 'static'],
 
-    // Even if you don't use internalization, you can use this field to set useful
-    // metadata like html lang. For example, if your site is Chinese, you may want
-    // to replace 'en' with 'zh-Hans'.
     i18n: {
       defaultLocale: 'en',
       locales: ['en'],
+    },
+    markdown: {
+      mermaid: true,
     },
 
     presets: [
@@ -39,9 +37,6 @@ async function createConfig()
         ({
           docs: {
             sidebarPath: require.resolve('./sidebars.js'),
-            docLayoutComponent: '@theme/DocPage',
-            docItemComponent: '@theme/ApiItem', // Derived from docusaurus-theme-openapi-docs
-            remarkPlugins: [mdxMermaid.default]
           },
           blog: {
             showReadingTime: true,
@@ -60,7 +55,8 @@ async function createConfig()
           title: 'NExp',
           logo: {
             alt: 'NExp Logo',
-            src: 'https://raw.githubusercontent.com/DigiChanges/node-experience/docs/RABC/readme/NExp.svg',
+            src: 'img/nexp.svg',
+            srcDark: 'img/download.svg',
           },
           items: [
             {
@@ -69,22 +65,6 @@ async function createConfig()
               position: 'left',
               label: 'Documentation',
             },
-            {
-              to: '/docs/api/main',
-              position: 'left',
-              label: 'API',
-            },
-            {
-              type: 'doc',
-              docId: 'tutorials/tutorials',
-              position: 'left',
-              label: 'Tutorials',
-            },
-            // {
-            //   to: '/blog',
-            //   label: 'Blog',
-            //   position: 'left'
-            // },
             {
               href: 'https://github.com/DigiChanges/node-experience',
               label: 'GitHub',
@@ -146,7 +126,7 @@ async function createConfig()
           typesenseServerConfig: {
             nodes: [
               {
-                host: 'https://typesense-production-1d39.up.railway.app',
+                host: 'typesense-production-1d39.up.railway.app',
                 port: 443,
                 protocol: 'https',
               },
@@ -156,27 +136,9 @@ async function createConfig()
         }
       }),
 
-    plugins: [
-      [
-        'docusaurus-plugin-openapi-docs',
-        {
-          id: 'apiDocs',
-          docsPluginId: 'classic',
-          config: {
-            nexp: { // Note: nexp key is treated as the <id> and can be used to specify an API doc instance when using CLI commands
-              specPath: 'api/nexp.json', // Path to designated spec file
-              outputDir: 'docs/api', // Output directory for generated .mdx docs
-              sidebarOptions: {
-                groupPathsBy: 'tag',
-                categoryLinkSource: 'tag',
-              },
-            },
-          }
-        },
-      ]
-    ],
+    plugins: [],
 
-    themes: ['docusaurus-theme-openapi-docs', 'docusaurus-theme-search-typesense'],
+    themes: ['docusaurus-theme-search-typesense', '@docusaurus/theme-mermaid'],
   }
 }
 

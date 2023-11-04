@@ -84,21 +84,7 @@ const sidebars = {
       type: "doc",
       id: "documentation/coming-soon",
     },
-  ],
-  api: [
-    {
-      type: "category",
-      label: "Main",
-      link: {
-        type: "generated-index",
-        title: "NExp API",
-        description:
-          "Hello! NExp (Node Experience) is a boilerplate for Node, which makes use of a Hexagonal architecture, in addition to all the power of TypeScript that combined allow a perfect cohesion thus achieving a clean and at the same time very powerful implementation.",
-        slug: "/api/main",
-      },
-      items: require('./docs/api/sidebar'),
-    },
-  ],
+  ]
 };
 
 module.exports = sidebars;

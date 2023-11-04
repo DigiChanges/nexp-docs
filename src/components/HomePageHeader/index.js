@@ -14,7 +14,7 @@ function Index() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/documentation/coverpage">
+            to="/docs/documentation/home">
             Documentation ⏱️
           </Link>
         </div>

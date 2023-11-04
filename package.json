@@ -1,41 +1,37 @@
 {
   "name": "nexp-docs",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "private": false,
   "homepage": "",
   "scripts": {
-    "docusaurus": "./node_modules/.bin/docusaurus",
-    "gen-docs": "./node_modules/.bin/docusaurus gen-api-docs",
-    "clean-docs": "./node_modules/.bin/docusaurus clean-api-docs",
-    "start": "./node_modules/.bin/docusaurus start",
-    "build": "./node_modules/.bin/docusaurus build",
-    "swizzle": "./node_modules/.bin/docusaurus swizzle",
-    "deploy": "./node_modules/.bin/docusaurus deploy",
-    "clear": "./node_modules/.bin/docusaurus clear",
-    "serve": "./node_modules/.bin/docusaurus serve",
-    "write-translations": "./node_modules/.bin/docusaurus write-translations",
-    "write-heading-ids": "./node_modules/.bin/docusaurus write-heading-ids",
+    "docusaurus": "docusaurus",
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "swizzle": "docusaurus swizzle",
+    "deploy": "docusaurus deploy",
+    "clear": "docusaurus clear",
+    "serve": "docusaurus serve",
+    "write-translations": "docusaurus write-translations",
+    "write-heading-ids": "docusaurus write-heading-ids",
     "convertpc": "p2o ./api/postman/Main.postman_collection.json -f ./api/nexp.json -o ./api/postman/options.json"
   },
   "dependencies": {
-    "@docusaurus/core": "2.1.0",
-    "@docusaurus/preset-classic": "2.1.0",
-    "@docusaurus/theme-common": "2.1.0",
-    "@mdx-js/react": "^1.6.22",
-    "clsx": "^1.2.1",
-    "docusaurus-plugin-openapi-docs": "^1.1.12",
-    "docusaurus-theme-openapi-docs": "^1.1.12",
-    "docusaurus-theme-search-typesense": "^0.7.0-0",
-    "mdx-mermaid": "^v1.3.0",
-    "mermaid": "^9.1.7",
-    "postman-to-openapi": "^2.7.0",
-    "prism-react-renderer": "^1.3.5",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "@docusaurus/core": "3.0.0",
+    "@docusaurus/preset-classic": "3.0.0",
+    "@docusaurus/theme-common": "3.0.0",
+    "@docusaurus/theme-mermaid": "^3.0.0",
+    "@mdx-js/react": "^3.0.0",
+    "clsx": "^2.0.0-next.0",
+    "docusaurus-theme-search-typesense": "^0.14.0-0",
+    "mermaid": "^10.6.0",
+    "postman-to-openapi": "3.0.1",
+    "prism-react-renderer": "^2.1.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "2.1.0",
-    "@types/react": "17"
+    "@docusaurus/module-type-aliases": "3.0.0-rc.1",
+    "@types/react": "18.2.0"
   },
   "browserslist": {
     "production": [
@@ -50,6 +46,6 @@
     ]
   },
   "engines": {
-    "node": ">=16.14"
+    "node": ">=18.17"
   }
 }
