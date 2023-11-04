@@ -59,13 +59,12 @@ As it is only a boilerplate, you have the freedom to structure the code whatever
 
 Common structures found within this project are: 
 
-- Basic authentication and authorization.
+- Keycloak authentication and authorization.
 - Filesystem with minIO, 100% S3 compatible.
 - Basic push Notification and Email.
-- TypeORM, MikroORM and Mongoose Integration.
-- Express and Koa integration.
-- Business logic independent of the HTTP and persistence libraries. 
-- Esbuild compiler. 
+- MikroORM and Mongoose Integration.
+- Koa integration.
+- Business logic independent of the HTTP and persistence libraries.
 
 ## Docs
 
@@ -73,4 +72,4 @@ Common structures found within this project are:
 
 [POSTMAN Documentation](https://documenter.getpostman.com/view/10426172/Tz5je15Z)
 
-[API Documentation](/docs_old/api/node-experience)
+[//]: # ([API Documentation]&#40;/docs/api/node-experience&#41;)

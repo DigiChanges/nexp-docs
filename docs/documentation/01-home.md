@@ -5,5 +5,4 @@
 - Pure Typescript
 - Docker and Docker Compose
 - Lint
-- Esbuild compiler
 - Jest

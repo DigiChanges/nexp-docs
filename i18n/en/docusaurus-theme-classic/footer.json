@@ -27,10 +27,6 @@
     "message": "Instagram",
     "description": "The label of footer link with label=Instagram linking to https://instagram.com/digichanges"
   },
-  "link.item.label.Blog": {
-    "message": "Blog",
-    "description": "The label of footer link with label=Blog linking to /blog"
-  },
   "link.item.label.GitHub": {
     "message": "GitHub",
     "description": "The label of footer link with label=GitHub linking to https://github.com/DigiChanges/node-experience"
