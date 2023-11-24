@@ -5,11 +5,10 @@
 To begin with, you must understand that the project is divided by domains.
 
 * `Auth` - In this domain we can find everything related to user, role, authentication and authorization with JWT.
-* `Config` - Configuration domain. Here we will find several configuration files. In addition, we will also find a folder called `config` in the root of the project. In that folder we are going to find the possible configuration by environment and a file that changes it through the environment variables.
-* `File` - In this domain we can find part of the file system.
+* `Config` - Configuration domain. Here we will find several configuration files. In addition, we will also find a folder called `config` in the root of the project. In that folder, we are going to find the possible configuration by environment and a file that changes it through the environment variables.
 * `Item` - An example domain.
 * `Notification` - Domain for email notifications and web push notifications.
-* `Shared` - Exceptional domain, are classes that are used throughout the system.
+* `Shared` - Exceptional domain is classes that are used throughout the system.
   
      * `Application` - Everything related to libraries like express or koa.
      * `Domain` - It is the basic domain layer as a base.
@@ -28,6 +27,6 @@ Within entities is the interface or contract of the entity.
 
 * `Repository` - It centralizes the logic to access the data sources through the chosen ORM. Encapsulates the set of stored objects, and the operations that can be performed on them.
 
-* `Commands` - Commands allows to configure and text commands to be entered via a computer terminal, and they are then interpreted as a program is being executed.
+* `Commands` - Commands allow to configure and text commands to be entered via a computer terminal, and they are then interpreted as a program is being executed.
 
-* `Middlewares` - They provide services like managing authorize policy, throttle request, multer for uploading files, and others.
+* `Middlewares` - They provide services like managing to authorize policy, throttle request, multer for uploading files, and others.

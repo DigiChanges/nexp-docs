@@ -1,6 +1,6 @@
 # Dotenv, envalid and config
 
-In this section we will briefly explain how dotenv, envalid and config work together.
+In this section, we will briefly explain how dotenv, envalid and config work together.
 
 The packages to be able to see in detail each one are the following:
 
