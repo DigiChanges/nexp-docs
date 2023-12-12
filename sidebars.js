@@ -70,10 +70,6 @@ const sidebars = {
     },
     {
       type: "doc",
-      id: "documentation/request-id",
-    },
-    {
-      type: "doc",
       id: "documentation/exceptions",
     },
     {

@@ -3,8 +3,8 @@
 [![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=DigiChanges_node-experience&metric=alert_status)](https://sonarcloud.io/dashboard?id=Your_Project_Key)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](https://github.com/DigiChanges/node-experience/blob/master/LICENSE)
 
-<div style="text-align:center">
-    <img width="125" src="nexp.svg" alt="logo NExp">
+<div align="center">
+    <img width="125" src="images/nexp.svg" alt="logo NExp"/>
 </div>
 
 ## Basic Description
@@ -122,4 +122,4 @@ Common structures found within this project are:
 
 ## License
 
-**NExp** is [MIT licensed](LICENSE).
+**NExp** is MIT licensed.
